@@ -1,0 +1,199 @@
+{
+  "main": {
+    "id": "bc20d4b379f7455f",
+    "type": "split",
+    "children": [
+      {
+        "id": "8a6cbeab81f0d587",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d9004364334b5e91",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Meta_直属领导英文面试准备_岗位定制版.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Meta_直属领导英文面试准备_岗位定制版"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "53ca525a1ab11024",
+    "type": "split",
+    "children": [
+      {
+        "id": "e5856f386847080c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e03d4812f5c10ee6",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a7d36c8a2abf70da",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "3a81e0c01d19686e",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "8f1e08142c8cbea4",
+    "type": "split",
+    "children": [
+      {
+        "id": "0066ee1fd4afddc5",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9ed766d998e820e9",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "meta_hr_interview_prep.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "ba3d996c1d9e6810",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "meta_hr_interview_prep.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "7d2294f1d9b4470e",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "86faab24554e4314",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "83f6f5ec5c47da24",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "meta_hr_interview_prep.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "d9004364334b5e91",
+  "lastOpenFiles": [
+    "meta_hr_interview_prep.md",
+    "RL Operations - Initial (IC).pdf",
+    "~$nfeng_Qiu_Manufacturing_Operations_Resume_261018.docx",
+    "Meta_HR英语面试复习计划.md",
+    "Meta_HR英语面试复习计划.md.671a2709-77d7-454f-bad5-848787aad1eb.chatgptdownload"
+  ]
+}

@@ -1,0 +1,172 @@
+JINFENG QIU
+
+Operations Research Scientist | Manufacturing Planning and Operations Optimization
+
++86 159 1576 5128 | qjf408729567@outlook.com
+
+PROFILE
+
+Operations research scientist with experience leading small algorithm teams and developing end-to-end optimization solutions. Combines business discovery, data standardization, mathematical modeling, solver design and implementation to improve capacity planning and production scheduling. Manufacturing projects span lithium-ion batteries and electronic materials, complemented by operational capacity management and large-scale energy network optimization.
+
+PROFESSIONAL EXPERIENCE
+
+HSBC Global Service (Guangdong) Co., Ltd.
+
+汇丰环球客户服务（广东）有限公司
+
+Operations Research Scientist | Aug 2025 – Present
+
+• Build a unified capacity management platform for customer due diligence. Align data sources, metric definitions and staff qualification criteria across teams to support workload planning, cross-market staffing, scheduling and case assignment.
+
+• Develop mathematical optimization and AI workflows for staffing, resource allocation, work in progress and operational data preparation.
+
+Youhualin Information Technology (Shanghai) Co., Ltd.
+
+悠桦林信息科技（上海）有限公司
+
+Algorithm Supervisor, Operations Research | Apr 2021 – Aug 2025
+
+• Led a small algorithm team on client projects, combining hands-on development with technical guidance and training. Led requirements analysis, solution design and algorithm implementation for manufacturing planning, energy and aviation applications.
+
+• Developed MPS, S&OP, MRP and demand forecasting algorithms; translated customer requirements into reusable planning models and supported implementation and proof-of-concept delivery.
+
+Guangzhou SIE Information Technology Co., Ltd.
+
+广州赛意信息科技股份有限公司
+
+Algorithm Engineer | Feb 2021 – Apr 2021
+
+• Developed maintenance workforce shift-scheduling algorithms and vibration-based motor fault early-warning algorithms.
+
+Shenzhen Urban Data Technology Co., Ltd.
+
+深圳市都市数据技术有限公司
+
+Algorithm Engineer, Operations Research | May 2019 – Feb 2021
+
+• Developed bus route generation, network optimization and simulation, vehicle scheduling and workforce rostering algorithms, balancing operating cost, direct passenger coverage and travel time.
+
+Guangzhou Guobang Asset Management Co., Ltd. /
+Zhongmeng Shengshi Investment Management (Guangzhou) Co., Ltd.
+
+广州国邦资产管理有限公司 / 中盟盛世投资管理（广州）有限公司
+
+Quantitative Researcher | Sep 2017 – Jul 2019
+
+• Led strategy development for an index-enhancement product with approximately RMB 50 million in assets. Researched equity factors and developed risk, constrained portfolio optimization and American-option delta-hedging models.
+
+SELECTED PROJECTS
+
+HSBC | Unified Operational Capacity Management | Oct 2025 – Present
+
+Algorithm lead for a customer due diligence capacity planning product spanning incoming demand, review workload, workforce supply, scheduling, case assignment and work in progress (WIP).
+
+• Lead the optimization workstream from business requirements and data preparation through forecasting, model design, solution generation and validation. Connect medium-term workforce decisions with operational scheduling and case allocation in a unified planning approach.
+
+• Coordinate across teams to unify data sources and standardize definitions for demand, workload, productivity, capacity and WIP. Align staff qualification and eligibility criteria so planning outputs use consistent business rules across markets.
+
+• Combine new-customer reviews with periodic reviews of existing customers. Integrate workload forecasting, backlog cleanup, workload smoothing and capacity estimation to translate review demand into workforce and assignment requirements.
+
+• Use mathematical programming, heuristics and scenario analysis to plan hiring, workforce reductions and cross-market redeployment. Incorporate qualification requirements, market-specific productivity, staffing lead times, reduction costs, resource mobility and demand variability.
+
+• Develop staff scheduling and case assignment logic subject to review-start dates, qualifications and individual WIP targets, linking capacity planning decisions to executable workforce and case arrangements.
+
+• Build Dify AI workflows to extract customer status and review-related features from unstructured case-manager notes, including dormant accounts, previously reported suspicious customers, exit-process status and customer familiarity. Validate structured outputs before use in optimization.
+
+• Develop benchmark tests using historical text and LLM-generated edge cases. Customer-status identification achieved 98% accuracy on the project benchmark; combine business rules, testing and human review to control output quality.
+
+Panasonic Electronic Materials | MPS and APS | Oct 2024 – Apr 2025
+
+Algorithm lead at Youhualin for copper-clad laminate planning, covering coupled drying and molding operations, material availability, mold resources, changeovers, inventory and delivery priorities.
+
+• Conducted in-depth requirements discovery with the Production Control (PC) team. Translated planning workflows, delivery commitments, physical constraints and cost drivers into a solution balancing business requirements, model complexity and computational efficiency; guided other algorithm engineers in development.
+
+• Designed layered planning: monthly supply-demand analysis to diagnose material shortages and affected orders; daily resource planning for equipment, molds and calendars; and short-term APS to express production decisions as executable batches. Distinguished confirmed delivery commitments from new requested dates in objective priorities.
+
+• Developed a hybrid MIP and heuristic framework: diagnose mold-capacity shortfalls, trace affected orders, evaluate changeover windows against mold-set availability and order relocation, update mold calendars and re-solve. Use delivery and relocation penalties to guide local choices.
+
+• Supported a six-month planning scope of approximately 7,000–10,000 orders and 10,000+ materials with solve times measured in minutes. Weekly APS addressed furnaces, mold positions, varnish batches, trial-product mixing and inter-factory material flows; post-processing formed furnace batches and sub-batches and rebuilt supply-demand links.
+
+• After deployment, mold changes decreased by approximately 10 per month, yielding estimated cleaning-cost savings of RMB 300,000 per month at RMB 30,000 per change. Project delivery-date fulfillment metrics exceeded 90% for requested dates and reached 99.9% for confirmed dates.
+
+SELECTED PROJECTS CONTINUED
+
+ATL | Advanced Planning and Scheduling | Jun 2023 – Aug 2024
+
+Algorithm engineer at Youhualin for lithium-ion battery production planning. Coordinated winding-line schedules with supporting packaging, electrolyte-filling and welding capacity under strict continuity and delivery requirements.
+
+• Translated demand, material supply, resource availability and production-continuity requirements into a planning solution spanning master planning, detailed daily scheduling and subsequent schedule adjustment.
+
+• Designed an iterative optimization framework using an initial production-batch set and sparse candidate batches. Expanded candidates selectively around unmet demand to improve solution quality while controlling model size, enabling factory-level schedules to be solved in minutes.
+
+• Designed a multi-factory planning framework to allocate demand to suitable factories and solve factory schedules in parallel. Balanced factory capacity, production continuity and delivery requirements rather than optimizing each factory in isolation.
+
+• Applied hierarchical planning to connect higher-level resource allocation with detailed scheduling. Master-plan outputs informed demand shares and workshop availability; daily plans represented machine-level continuous production intervals and supporting-line requirements.
+
+• Worked with users to clarify and simplify business requirements, reducing mathematical complexity while preserving critical operating objectives and constraints. Supported a practical balance between detailed production rules and solution responsiveness.
+
+• The scheduling solution was deployed across ATL factories, reduced planner workload by 90% and became a production planning reference project for Youhualin, supporting further commercial opportunities.
+
+PetroChina | Gas Network Value Chain Optimization | Feb 2022 – Jan 2023
+
+Algorithm engineer at Youhualin for integrated gas procurement, transmission and sales planning across a national-scale network of approximately 37,000–40,000 km, 650+ pipelines and around 120 compressor stations.
+
+• Translated physical network behavior and commercial objectives into a large-scale, nonconvex mixed-integer nonlinear programming (MINLP) model. Decisions included procurement volumes, sales allocation, node pressures, pipeline flows and directions, compressor operating modes and pressure ratios.
+
+• Modeled flow conservation, pressure bounds, supply and demand limits and tiered purchase and sales prices. Incorporated elevation-adjusted Weymouth equations and discrete transmission-direction choices to represent high-elevation pipelines and bidirectional flows.
+
+• Represented compressor capability using flow, pressure ratio, inlet pressure, speed and surge/choke boundaries, including series and parallel station configurations, bypass selection and compression-direction decisions.
+
+• Designed and implemented a sequential linear programming (SLP) approach using first-order approximations and neighborhood bounds to solve successive MILP subproblems. Addressed hydraulic feasibility, compressor capability, demand requirements and profit objectives in stages.
+
+• Applied nonlinear correction with discrete decisions fixed to update gas compressibility and pressure-ratio bounds. Developed repair strategies for infeasibility caused by linearization and numerical errors, and tested and visualized solution results.
+
+• Delivered planning outputs for gas purchasing, transmission routes and quantities, compressor pressure ratios and sales allocation. Extended modeling to multi-period planning and pipeline linepack management.
+
+• On national-network test scenarios, the custom SLP approach achieved more than 10× speedups over Gurobi 11 nonconvex MINLP / piecewise-linearization baselines in multiple cases. Associated research produced two journal papers and four patent publications.
+
+ADDITIONAL PROJECTS AND QUALIFICATIONS
+
+Youhualin | Integrated Supply Chain Planning Framework | Oct 2024 – Aug 2025
+
+Algorithm lead for a reusable MPS, S&OP and MRP foundation supporting customer-specific manufacturing planning solutions.
+
+• Designed the end-to-end algorithm workflow across data validation and compilation, domain objects, model construction, sequential multi-objective solving, post-processing and KPI output. Unified demand, inventory, production, procurement, transportation, suppliers, bills of materials and resource calendars in a supply-demand network.
+
+• Supported finite or unconstrained capacity, overtime, safety stock, purchasing ratios, batch sizes, substitute materials, backlog reduction and cost/profit objectives. Represented complex exceptions through virtual materials and routing structures, then restored business meaning in post-processing.
+
+• Separated shared capabilities from client extensions through Git submodules, inheritance and targeted overrides. Standardized logs, intermediate results and diagnostics to distinguish data, modeling, solving and post-processing issues and support regression checks.
+
+• Provided templates and technical guidance that enabled junior engineers and coding agents to build planning models in days across manufacturing projects, including phosphorus chemicals, semiconductor manufacturing, beverages, electronic materials and electronics component MRP.
+
+China Southern Airlines | Flight Recovery POC | Oct 2021 – Jun 2022
+
+Algorithm engineer at Youhualin for disruption recovery, minimizing changes to flight plans and reducing delay and cancellation impacts.
+
+• Reviewed research, designed a time-space network and candidate-flight generation strategy, and implemented algorithms in C++. Used column generation with shortest-path route subproblems and a master problem selecting aircraft routes to cover scheduled flights.
+
+• In a proof of concept for China Southern Airlines, generated high-quality recovery solutions for a fleet of 130+ aircraft within 15 minutes.
+
+EDUCATION
+
+Hong Kong Baptist University / University of Kent | Sep 2016 – Nov 2017
+
+Master’s degree in Operational Research and Business Statistics
+
+Nanfang College of Sun Yat-sen University | Sep 2011 – Jun 2015
+
+Bachelor’s degree in Economics
+
+TECHNICAL SKILLS AND LANGUAGES
+
+Optimization: mixed-integer programming, nonlinear and nonconvex optimization, heuristics, sequential linear programming, column generation, multi-objective optimization and scenario analysis.
+
+Manufacturing and operations: capacity planning, production scheduling, changeover optimization, resource calendars, inventory and WIP, MPS, APS, S&OP and MRP.
+
+Tools: Python, Pandas, C++, Gurobi, CPLEX, Pyomo, scikit-learn, XGBoost, TensorFlow, Dify and coding agents. Languages: Mandarin Chinese; English (IELTS 6.5).
+
+SELECTED PUBLICATIONS
+
+Gas network value chain optimization considering compressor capacity constraints. PLOS ONE. DOI: 10.1371/journal.pone.0332833.
+
+Value chain optimization in large scale gas network considering elevation and transmission direction. Scientific Reports. DOI: 10.1038/s41598-025-07993-5.
