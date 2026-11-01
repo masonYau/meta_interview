@@ -27,7 +27,7 @@
 
 | 案例 | 产品经理视角 | 证据强度与边界 |
 |---|---|---|
-| 松下 | 用户需求、决策分层、目标取舍、业务价值 | 主导算法方案及业务调研；不扩展为正式拥有全部产品路线图 |
+| 松下 | 按供应确认、计划稳定性和需求成熟度设计分层；明确 PC/采购/后台交接 | 分层策略由本人设计，与客户 IT、PC 等部门共同确定；不扩展为拥有全部产品路线图 |
 | ATL IT 输入版本 | 非功能需求、跨团队分歧、责任边界、工程落地 | ATL 维护输入，版本管理已落地；没有排障提速数字 |
 | ATL M6S | 需求遗漏、产品可用性、用户反馈、修正与反思 | PC 审核，审核及人工调整从约 3 小时降到 20 分钟；不是产线实测结果 |
 | 通用供应链框架 | 客户共性与个性、能力复用、技术平台演进 | 简历支持框架设计与指导工程师；没有正式商业路线图或收入数字 |
@@ -45,9 +45,9 @@
 
 我目前在汇丰参与产能规划产品。在此之前，我在悠桦林工作了四年多，带领小型算法团队，参与松下电子材料和 ATL 等制造业项目。
 
-> My work has involved understanding user requirements, defining planning rules, designing optimization solutions, and working with business and IT teams. At Panasonic, I helped translate delivery priorities, material availability, and equipment constraints into different planning levels. At ATL, I worked on production scheduling and input version management with the customer teams.
+> My work has involved understanding user requirements, defining planning rules, designing optimization solutions, and working with business and IT teams. At Panasonic, I designed the layered planning strategy and agreed it with the customer’s IT and PC teams. At ATL, I worked on production scheduling and input version management with the customer teams.
 
-我的工作包括理解用户需求、定义计划规则、设计优化方案，以及与业务和 IT 团队协作。在松下，我参与将交付优先级、物料可用性和设备限制转化为不同层次的计划方案。在 ATL，我参与生产排程，并与客户团队推动输入版本管理。
+我的工作包括理解用户需求、定义计划规则、设计优化方案，以及与业务和 IT 团队协作。在松下，我设计了分层计划策略，并与客户 IT、PC 团队共同确定。在 ATL，我参与生产排程，并与客户团队推动输入版本管理。
 
 > I also designed a reusable supply chain planning framework. That experience made me think beyond solving one model, to which capabilities should be shared and which should remain customer-specific.
 
@@ -107,31 +107,41 @@
 
 ## 3. 松下主案例：从用户问题到产品方案
 
+逐步决策、变量颗粒度、输入输出与源码证据见[松下项目决策详解](C:/Users/HP/Desktop/application_material/meta/松下项目_决策过程与输入输出详解.md)。本节保留约两分钟的主陈述。
+
 ### Q4. Tell me about a product-like initiative you led.
 
-> A useful example is the planning solution for Panasonic Electronic Materials. The users were production planners. They needed to manage delivery commitments while dealing with material availability, equipment capacity, and mold constraints.
+> At Panasonic Electronic Materials, I led the algorithm solution for a planning system used by production planners. The challenge was to coordinate material availability, delivery commitments, equipment, and molds.
 
-一个合适的例子是松下电子材料的计划方案。用户是生产计划员，他们需要在物料、设备产能和模具限制下安排生产，并管理交期承诺。
+在松下电子材料，我负责生产计划系统的算法方案，用户是生产计划员。难点在于协调物料、交期承诺、设备和模具。
 
-> I was the algorithm lead and worked with the planning team on requirements. A key decision was to distinguish different problems. Monthly supply-demand analysis identified material shortages and affected orders. Daily planning considered resource calendars, and short-term scheduling produced more detailed production arrangements.
+> I designed a layered approach and agreed it with the customer’s IT and PC teams. The monthly model identified material shortages. Orders flagged as short were held for procurement confirmation before we replied with a delivery date.
 
-我担任算法负责人，与计划团队一起梳理需求。关键判断是区分不同问题：月度供需分析识别物料缺口及受影响订单；日度计划考虑资源日历；短期排程形成更具体的生产安排。
+我设计了分层方案，并与客户 IT、PC 团队共同确定。月模型识别缺料；缺料订单先等待采购确认，再回复交期。
 
-> We also separated confirmed delivery commitments from newly requested dates. For mold planning, we balanced delivery priorities with the cost of changes, using optimization together with local calendar adjustments.
+> For detailed resource planning, I kept PC’s material calendar because it was relatively stable. I limited detailed mold planning to the near-term sixty-day window, since orders further out were sparse and did not need early mold commitments.
 
-我们还区分了已确认交期承诺和新增需求的期望日期。针对模具安排，我们兼顾交付优先级与换型代价，将优化方法与局部日历调整结合起来。
+在详细资源计划中，我保留了相对稳定、由 PC 制定的材质日历。模具只细化近 60 日，因为远期订单稀疏，无需提前确定模具安排。
+
+> PC then selected confirmed finished-goods quantities from the master plan, and the back-end system converted them into APS demands. APS and its post-processing turned the quantities into mold assignments and furnace-batch details.
+
+随后，PC 选取确认的主计划成品产量，后台将其转换为 APS 需求。APS 及后处理进一步形成模具安排和炉批明细。
 
 > After deployment, mold changes decreased by around ten per month. Panasonic estimated the cleaning cost at RMB 30,000 per change, giving estimated monthly savings of about RMB 300,000. Over three months, the planning results showed 99.9% fulfillment against confirmed dates. That was a planning metric, not actual shipment performance.
 
 上线后，每月换型减少约 10 次。松下测算每次清洗费用约 3 万元，因此月度清洗费用节约估计约 30 万元。三个月的计划结果中，确认交期满足指标为 99.9%；这是计划指标，并非实际出货表现。
 
-> From a product perspective, the important part was matching different decisions to the right planning level, so the output addressed the users’ actual needs.
+> The main product lesson was to match each decision’s precision to the information available and make the handoffs between planning, procurement, and scheduling explicit.
 
-从产品角度，重要的是把不同决策放在合适的计划层次处理，使输出真正回应用户需求。
+主要产品体会是：让决策精度与已有信息相匹配，并明确计划、采购和详细排程之间的交接。
 
-**故事拆解：** 用户是 PC → 问题是资源与承诺耦合 → 你负责算法方案与调研 → 产品判断是分层及优先级 → 结果是清洗费用估算和计划满足指标。
+**故事拆解：** PC 的供需与交期决策 → 本人设计分层、跨部门共同确定 → 缺料等待采购确认 → 稳定材质日历由 PC 给定、模具近端细化 → PC 确认成品量并由后台转 APS → 费用估算与计划交期指标。
+
+**三项可重点追问的真实判断：** 为什么缺料订单不立即回复交期；为什么保留 PC 材质日历；为什么只细化近 60 日模具。代码取前 60 个 period，本人说明现场为 60 日，技术展开时区分配置与业务口径。
 
 **不能扩写：** 已独立拥有整个产品路线图、采购与工厂协同已形成自动闭环、所有模型结果都在产线上验证、实际交付率达到 99.9%。
+
+**接口及指标边界：** 后台转换由本人确认，Python 仓库仅包含独立 MPS/APS 入口，不能因未见后台代码就否定实际衔接，也不推导出自动反馈闭环。缺料需求是否计入 99.9% 的分母尚未确认。
 
 ### Q5. How do you discover user needs?
 
