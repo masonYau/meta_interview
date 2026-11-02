@@ -373,6 +373,10 @@ MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模�
 
 我本人完整设计开发了 Gurobi 与 CPLEX 求解器适配层，并保留可选 Pyomo 路径。框架标准化了共用模型组件、顺序目标、解提取和诊断，让工程师通过输入、模型和输出的局部扩展，集中处理不同的业务规则。
 
+> The platform also gave the team a shared understanding of the model structure, domain model, and terminology. This made project handovers, onboarding additional developers, collaborative development, and code reviews easier. Together with component reuse, it helped improve development efficiency and reduce development costs.
+
+平台也让团队对模型骨架、领域模型和术语形成一致理解，使项目交接、新开发者加入、多人协作及代码审查更容易开展。结合组件复用，整体提升开发效率、降低开发成本。
+
 > The product lesson was to make the common path easy to follow while keeping clear extension points. I would measure time to a correct first model, delivery effort, and the quality of the final planning outputs.
 
 产品上的体会是，让共用流程容易遵循，同时保留明确的扩展位置。我会看首个正确模型的完成时间、交付投入和最终计划质量。
@@ -384,6 +388,8 @@ MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模�
 **贡献记忆：** 本人负责算法工作流设计与工程师指导；求解器适配由本人完整设计开发；领域对象为共同成果、基本参考本人奥克斯设计；产品接口由 PM 基于对象设计。前述指标与路线图为建议方法，未补充具体对比数值。代码复用不直接证明做过付费产品定价或正式商业路线图治理。
 
 **可复用性记忆：** 三类问题适合相同的离散时间生产计划建模范式 → 共用时间、物料流平衡、对象及模型组件 → 以能力规则、约束、目标与粒度表达差异 → 新人掌握一套基础即可扩展到多个计划场景。
+
+**团队与成本价值：** 统一模型骨架、领域模型及术语定义 → 项目交接、多人合作、新开发者加入和代码审查更高效 → 减少重复开发、沟通与返工投入 → 提升开发效率、降低开发成本。尚未提供成本或效率的统一改善比例，不补写量化收益。
 
 **技术追问顺序：** PSP 为何同时表达物料和位置 → 替代选择怎样转成虚拟网络、怎样还原 → 求解器适配封装什么 → 标准组件与客户覆盖怎样分工 → 顺序求解怎样保护前序结果。完整中英回答见详解第 12 节。
 

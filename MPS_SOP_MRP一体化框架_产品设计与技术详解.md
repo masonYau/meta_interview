@@ -8,6 +8,8 @@
 
 **主线：把一次计划模型交付所需的数据理解、对象组织、建模、求解和结果解释形成共用流程，让新人沿着明确的扩展位置完成新场景，而不必从零搭建全部基础设施。**
 
+**[本人补充] 平台价值还包括团队协作：** 统一模型骨架、领域模型及术语定义，使项目交接、多人合作、新开发者加入和代码审查都有共同的理解基础。结合共用组件减少重复开发，整体价值是**提升开发效率、降低开发成本**。当前没有提供效率或成本改善的统一量化比例。
+
 **可复用性的建模基础：MPS、MRP、SOP 这类问题都很适合使用 Discrete-time Production Planning Models（离散时间生产计划模型）建模。** 它们共同涉及各时段的需求、物料投入产出、供应、库存和生产安排，因此可以共享时间结构、领域对象、流量平衡及主要建模组件，再通过产能策略、约束与目标表达不同计划需求。
 
 ### 本人贡献与协作分工
@@ -261,6 +263,20 @@ usePyomo = False → pyuha 的 Gurobi / CPLEX 原生 API 适配
 
 证据：[目标登记](D:/yhl_back/scp/scp/kernel/model/model_manager.py:49)、[目标顺序与参数](D:/yhl_back/scp/scp/kernel/model/discrete_model_manager.py:2973)、[顺序求解](D:/yhl_back/scp/scp/kernel/model/model_manager.py:143)、[欠交结果保护](D:/yhl_back/scp/scp/kernel/model/discrete_model_manager.py:1954)、[分组保护约束](D:/yhl_back/scp/scp/kernel/model/discrete_model_manager.py:2578)。
 
+### 7.4 团队共享模型认知：支持交接、协作与代码审查
+
+**[本人确认]** 平台让开发者对模型骨架与领域模型形成一致认知，并统一术语定义。项目成员可以基于同一套概念讨论业务含义、建模位置和代码改动。
+
+| 场景 | 共用基础怎样发挥作用 | 对开发效率与成本的意义 |
+|---|---|---|
+| 项目交接 | 接手者熟悉数据、对象、集合、变量、约束、求解与后处理的组织方式 | 更快定位项目差异，减少重新理解整套实现的投入 |
+| 加入新开发者 | 已掌握框架的工程师可以沿相同骨架找到对象、约束和扩展位置 | 缩短熟悉新项目的过程，减少对原作者反复讲解的依赖 |
+| 多人合作 | 对需求、供应、库存点、工序、产量与满足关系等概念使用一致定义 | 减少术语歧义和接口理解偏差，便于分工与集成 |
+| 代码审查 | 审查者了解共用模型结构，可以聚焦新增规则、索引、边界、单位及结果处理 | 提高审查效率，更容易识别偏离共用语义的实现 |
+| 持续开发 | 基础能力复用，客户差异在明确位置扩展 | 减少重复实现、沟通和返工投入，降低开发成本 |
+
+**面试表达：** 平台同时复用模型组件和团队对模型的理解。代码熟悉度、术语一致性及明确的扩展位置，让后续开发者更容易接手、协作和审查。具体交接时间、审查工时或成本下降比例尚未提供，不补写数字。
+
 ## 8. 客户扩展：松下如何使用这套框架
 
 松下仓库将 SCP 作为子模块引用；客户工程通过继承与方法覆盖使用基座。两份本地备份的版本未做完整一致性比对，因此引用各自实现说明结构，不声称行号或版本完全相同。
@@ -285,12 +301,14 @@ usePyomo = False → pyuha 的 Gurobi / CPLEX 原生 API 适配
 
 框架包含数据校验、计时、目标日志、可选模型／变量输出；仓库也有 CI 配置和一个 MPS 测试入口，调用结果合理性与一致性检查。可见检查涉及齐套、计划数量和资源能力等。当前入口指向 `case1`，本次没有运行，不把它描述成已经覆盖全部产品和后端的完整回归矩阵。
 
-**[建议方法] 面向新人交付可跟踪四类指标：**
+**[建议方法] 面向开发与交付可跟踪以下指标：**
 
 | 维度 | 建议指标 | 当前证据边界 |
 |---|---|---|
 | 上手效率 | 新人到首个正确基线的时间、首次独立交付所需支持 | 本人确认降低上手门槛是目标；未给出统一前后对比数值 |
 | 交付复用 | 新增数据映射／约束／后处理工作量，共用功能占比 | 结构支持复用；不编造复用率 |
+| 团队协作 | 交接至首次独立修改的时间、新成员熟悉项目所需支持、代码审查与返工工时 | 本人确认一致认知和术语有利于协作；未提供量化对比 |
+| 开发成本 | 在相近范围与质量要求下，建模、集成、交接、审查和返工所需总人时 | 用于评价整体效率与成本，不只统计求解运行时间 |
 | 正确性 | 流量平衡、能力、齐套、替代范围、结果一致性 | 已有部分检查；覆盖范围需单独验证 |
 | 运维解释 | 数据错误定位时间、求解状态可解释性、业务异常追溯 | 已有日志与追溯基础；不编造故障时长改善 |
 
@@ -308,9 +326,9 @@ usePyomo = False → pyuha 的 Gurobi / CPLEX 原生 API 适配
 | 后端怎样解耦 | 共同建模接口下适配 Gurobi／CPLEX，并保留 Pyomo 路径 | 新人无需学习所有后端差异才能构建基线 | 共同能力边界与参数／数值差异 |
 | 怎样标准化交付 | 固定流程、组件、目标机制、结果结构与检查位置 | 知道从哪里扩展、怎样定位问题 | 标准骨架不能替代客户规则验证 |
 
-以上“用户收益与代价”是对设计的产品解释。本人确认的直接初衷是让新人快速上手；尚未补充正式用户研究、产品优先级委员会或商业定价，不将其写成已发生经历。
+本人还确认，统一骨架、领域模型和术语有利于交接、多人协作、新成员加入与代码审查；结合代码复用，整体提升开发效率、降低开发成本。表内更细的作用与代价是对设计的产品解释；尚未补充正式用户研究、产品优先级委员会或商业定价，不将其写成已发生经历。
 
-## 11. 英文主陈述：约 2–3 分钟，中英对照
+## 11. 英文主陈述：约 3–4 分钟，中英对照
 
 > I led the algorithm work on an integrated planning framework for MPS, S&OP, MRP, and customer-specific daily planning. The main users were junior algorithm engineers. The goal was to help them build planning solutions without recreating the full workflow for each project.
 
@@ -335,6 +353,10 @@ MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模�
 > I personally designed and implemented the solver adaptation layer. It provided common modeling interfaces for Gurobi and CPLEX, with an optional Pyomo path. We also standardized model components, sequential objectives, solution extraction, and diagnostics, so engineers could focus on the business rules that actually differed.
 
 我本人完整设计并开发了求解器适配层，为 Gurobi 和 CPLEX 提供共用建模接口，并保留可选的 Pyomo 路径。框架还标准化了模型组件、顺序目标、解提取和诊断，让工程师集中处理真正不同的业务规则。
+
+> The platform also gave the team a shared understanding of the model structure, domain model, and terminology. This made project handovers, onboarding additional developers, collaborative development, and code reviews easier. Together with component reuse, it helped improve development efficiency and reduce development costs.
+
+平台也让团队对模型骨架、领域模型和术语形成一致理解，使项目交接、新开发者加入、多人协作及代码审查更容易开展。结合组件复用，整体提升开发效率、降低开发成本。
 
 > The product lesson was to make the common path easy to follow while keeping clear extension points. I would evaluate that through time to a correct first model, delivery effort, and the quality of the final planning outputs.
 
@@ -392,9 +414,9 @@ MPS、MRP、SOP 都适合使用离散时间生产计划模型，因此可以共�
 
 ### Q9. How would you measure whether the framework was successful?
 
-> I would measure how long a new engineer takes to produce a correct first model, how much support and custom code are needed, and whether the final plan passes business checks. Solver runtime is one measure, but it does not capture onboarding or delivery quality on its own.
+> I would measure how long a new engineer takes to produce a correct first model, the effort needed for handovers and code reviews, and the total development effort for a comparable scope. I would also check whether the final plan passes business checks. The overall goal is higher development efficiency and lower development costs, while maintaining planning quality.
 
-我会看新人多久能做出第一个正确模型、需要多少支持和定制代码，以及最终计划是否通过业务检查。求解时间是一个指标，但不足以单独评价上手和交付质量。
+我会看新人多久能做出第一个正确模型、交接与代码审查需要多少投入，以及相近范围的总开发投入。同时检查最终计划是否通过业务验证。整体目标是在保持计划质量的同时，提升开发效率、降低开发成本。
 
 ### Q10. What would you improve next?
 
@@ -402,9 +424,17 @@ MPS、MRP、SOP 都适合使用离散时间生产计划模型，因此可以共�
 
 我会明确各后端能力范围，加强可用解及终止原因检查，并补充跨计划模块和后端的代表性案例。同时根据新人工程师反馈，找出难理解的抽象及扩展位置。这些是本次分析后的改进建议。
 
+### Q11. How did the platform help team collaboration?
+
+> It gave developers a shared model structure, domain model, and consistent terminology. Someone taking over a project could focus on its specific rules, while reviewers could assess changes against a familiar foundation. That made handovers, onboarding, and collaborative development more efficient and helped reduce development costs.
+
+平台让开发者共享模型骨架、领域模型和一致的术语。接手项目的人可以聚焦项目特定规则，审查者也可以基于熟悉的基础判断改动。这有利于提高交接、新人加入及多人开发的效率，并降低开发成本。
+
 ## 13. 面试使用顺序与事实边界
 
 先用一句话定位：**“MPS、MRP、SOP 都适合用离散时间生产计划模型建模，我将其共用对象、模型组件和交付流程形成可复用框架，让新人更快构建可验证的方案；我本人完整设计开发了多求解器适配层。”**
+
+平台价值可接一句：**“统一的模型认知和术语也支持项目交接、多人协作、新开发者加入及代码审查，整体提升开发效率、降低开发成本。”**
 
 再按追问展开：流程 → 对象及颗粒度 → 虚拟网络例子 → 后端适配 → 建模与验证标准。约两分钟主陈述可以只选一个松下例子；代码细节留给技术追问。
 
