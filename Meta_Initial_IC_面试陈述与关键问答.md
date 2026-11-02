@@ -31,7 +31,7 @@
 
 | 案例 | 主要证明什么 | 推荐展开内容 | 必须补足 |
 |---|---|---|---|
-| 松下 CCL | 制造理解、技术判断、业务取舍、与 PC 合作 | 承诺交期与期望日期；月度缺料分析、日度资源计划、短期 APS；模具日历修复；炉批表达 | 一次真实分歧、团队分工、收益口径 |
+| 松下 CCL | 制造理解、技术判断、业务取舍、与 PC 合作 | 承诺交期与期望日期；MRP 缺料分析、日度资源计划、短期 APS；模具日历修复；炉批表达 | 一次真实分歧、团队分工、收益口径 |
 | ATL | 规模化、连续生产、多层计划、复杂度控制 | 主计划与日计划；连续生产区间；稀疏候选与按需扩展 | 本人具体负责模块、规模耗时、90% 工时口径 |
 | 汇丰 | 跨团队规则统一、信息不完整下推进 | demand/workload/capacity/WIP 定义；人员资质与跨市场限制；中期计划与日常分配 | 一个真实规则分歧、当前上线范围与实际效果 |
 | 通用供应链框架 | 将一次交付变成可复用能力 | 公共模型与客户扩展、标准输入输出、日志与诊断、指导初级工程师 | 具体复用项目、本人设计与他人实现边界 |
@@ -70,7 +70,7 @@
 方案中的三个关键判断：
 
 1. 区分订单日期与承诺。已确认订单与新需求使用不同的日期口径和优先级，避免只用统一权重掩盖业务承诺。
-2. 区分计划层次。月度供需分析识别物料缺口及受影响订单；日度计划考虑具体设备、模具与日历；短期 APS 形成炉批等执行对象。
+2. 区分计划层次。MRP 物料需求分析识别物料缺口及受影响订单；日度计划考虑具体设备、模具与日历；短期 APS 形成炉批等执行对象。
 3. 选择混合方法。用模型暴露模具能力缺口，再在局部窗口检查模具套数、已有工单搬迁及交付影响，调整日历后重新求解。
 
 结果部分根据简历陈述：上线后每月换模减少约 10 次，按每次 3 万元估算，月度清洗费用节约约 30 万元。项目记录的确认交期满足指标为 99.9%。在确认统计口径前，不把该指标表述为全部订单实际按时交付率。
@@ -83,7 +83,7 @@
 >
 > As the algorithm lead, I worked with the production planning team on requirements and led the solution design.
 >
-> There were three important decisions. First, we distinguished confirmed delivery commitments from newly requested dates. Second, we used separate planning levels: monthly supply-demand analysis, daily resource planning, and short-term scheduling. Third, we combined optimization with local adjustments to mold calendars, rather than putting every detailed decision into one large model.
+> There were three important decisions. First, we distinguished confirmed delivery commitments from newly requested dates. Second, we used separate planning levels: MRP analysis, daily resource planning, and short-term scheduling. Third, we combined optimization with local adjustments to mold calendars, rather than putting every detailed decision into one large model.
 >
 > The short-term scheduling results were then converted into furnace batches and sub-batches for users.
 >
@@ -247,7 +247,7 @@
 
 ### 松下
 
-- 为什么月模型放开标准资源产能？答：用于供需与缺料诊断；有限资源安排在后续阶段。不称月模型已完成有限产能交期承诺。
+- 为什么 MRP 模型放开标准资源产能？答：用于供需与缺料诊断；有限资源安排在后续阶段。不称 MRP 模型已完成有限产能交期承诺。
 - 缺料订单怎样处理？现有笔记提示日模型存在过滤缺料需求逻辑；要核实这些订单是否仍计入最终交期 KPI 分母。
 - 为什么混合 MIP 与启发式？答：用模型协调供需，用局部候选控制换模组合复杂度。局部选定后重求解，因为会影响其他订单和资源。
 - 连续区间数量是否等于物理换模次数？答：它是代理指标；边界条件及实际清洗事件需另核实。
@@ -316,3 +316,5 @@
 - 对 Meta/产品/岗位的个人兴趣与长期目标；离开汇丰的真实原因是否与建议稿一致。
 
 收到补充后优先修订 Q3、Q5、Q6、Q7 与成果段，将模板替换为可追问的真实故事，再压缩为口语卡片。
+
+

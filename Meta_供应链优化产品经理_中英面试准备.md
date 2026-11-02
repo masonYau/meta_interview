@@ -1,6 +1,6 @@
 # Meta：供应链与运筹优化产品经理面试准备（中英对照）
 
-更新日期：2026-11-01。
+更新日期：2026-11-02。
 
 > **最新确认：** 本人明确补充：对应 **IC5**，招聘方明确说明 **偏 PM**；本人此前理解为产品经理。因此本稿恢复为主要面试准备材料，定位为“制造／供应链运营方向、偏产品经理职责的 IC5”。以需求定义、优先级取舍、优化决策工具、跨团队交付与使用效果为主线；正式职位名称及具体决策权限尚未展开。截图中 IC6 的 TPM 和设备／测试／良率要求不直接套用于本人 HC。
 
@@ -23,14 +23,15 @@
 3. **有跨团队交付经验。** 能协调 PC、客户 IT 和算法团队的不同诉求，明确数据接口与职责。
 4. **能讨论实际效果。** 看用户审核和调整计划所需时间、实际业务结果与可解释性，不只看算法速度和目标函数。
 
-### 五个案例的使用顺序
+### 案例的使用顺序
 
 | 案例 | 产品经理视角 | 证据强度与边界 |
 |---|---|---|
 | 松下 | 按供应确认、计划稳定性和需求成熟度设计分层；明确 PC/采购/后台交接 | 分层策略由本人设计，与客户 IT、PC 等部门共同确定；不扩展为拥有全部产品路线图 |
+| ATL 整体方案 | 从东莞向宁德推广，为规模与细节复杂度重新划分决策层次 | 本人增加主计划与排程后校正，设计稀疏候选逐步扩展的迭代求解机制；主计划产能折扣留余量，但可能增加转型 |
 | ATL IT 输入版本 | 非功能需求、跨团队分歧、责任边界、工程落地 | ATL 维护输入，版本管理已落地；没有排障提速数字 |
 | ATL M6S | 需求遗漏、产品可用性、用户反馈、修正与反思 | PC 审核，审核及人工调整从约 3 小时降到 20 分钟；不是产线实测结果 |
-| 通用供应链框架 | 客户共性与个性、能力复用、技术平台演进 | 简历支持框架设计与指导工程师；没有正式商业路线图或收入数字 |
+| 一体化计划框架 | 以新手算法工程师为用户，统一流程、对象与建模，支持客户扩展 | 本人完整设计开发求解器适配；领域对象参考本人奥克斯设计但非全部独立原创；产品接口由 PM 设计 |
 | 汇丰 | 统一数据定义、端到端决策链、AI 工作流 | 当前项目进行中；98% 是项目 benchmark，不是全量生产准确率 |
 
 现场工程稿保留作领域补充；本次不将 FATP/SMT、OEE、良率工程作为主要经历证明。供应链深度重点是制造计划、物料与产能、MPS/APS/MRP/S&OP 相关算法能力，不自动扩大到采购商务、物流网络运营或供应商合同管理。
@@ -45,13 +46,13 @@
 
 我目前在汇丰参与产能规划产品。在此之前，我在悠桦林工作了四年多，带领小型算法团队，参与松下电子材料和 ATL 等制造业项目。
 
-> My work has involved understanding user requirements, defining planning rules, designing optimization solutions, and working with business and IT teams. At Panasonic, I designed the layered planning strategy and agreed it with the customer’s IT and PC teams. At ATL, I worked on production scheduling and input version management with the customer teams.
+> My work has involved understanding user requirements, defining planning rules, designing optimization solutions, and working with business and IT teams. At Panasonic, I designed the layered planning strategy and agreed it with the customer’s IT and PC teams. At ATL, I added master planning and post-scheduling correction to support a larger factory.
 
-我的工作包括理解用户需求、定义计划规则、设计优化方案，以及与业务和 IT 团队协作。在松下，我设计了分层计划策略，并与客户 IT、PC 团队共同确定。在 ATL，我参与生产排程，并与客户团队推动输入版本管理。
+我的工作包括理解用户需求、定义计划规则、设计优化方案，以及与业务和 IT 团队协作。在松下，我设计了分层计划策略，并与客户 IT、PC 团队共同确定。在 ATL，我增加主计划和排程后校正，以支持规模更大的工厂。
 
-> I also designed a reusable supply chain planning framework. That experience made me think beyond solving one model, to which capabilities should be shared and which should remain customer-specific.
+> I also led the algorithm design of a reusable planning framework to help junior engineers build solutions faster. I personally designed and implemented its solver adaptation layer. That made me think about which capabilities should be shared and which should remain customer-specific.
 
-我还设计过可复用的供应链计划框架。这让我不仅关注一个模型怎样求解，也关注哪些能力应当共用，哪些应当保留为客户定制。
+我还负责可复用计划框架的算法设计，帮助新手工程师更快构建方案，并亲自完整设计开发求解器适配层。这让我关注哪些能力应当共用，哪些应当保留为客户定制。
 
 > I’m interested in a product role where I can combine this technical background with user understanding, prioritization, and cross-functional delivery to improve planning decisions.
 
@@ -107,7 +108,9 @@
 
 ## 3. 松下主案例：从用户问题到产品方案
 
-逐步决策、变量颗粒度、输入输出与源码证据见[松下项目决策详解](C:/Users/HP/Desktop/application_material/meta/松下项目_决策过程与输入输出详解.md)。本节保留约两分钟的主陈述。
+本节将按月进行物料需求、路径选择与缺料分析的层次统一称为 **MRP（Material Requirements Planning，物料需求计划）模型**。MRP 先收敛大量生产路径／替代料选择，对后续详细模型的求解效率至关重要；实际采购计划由采购部门确认。
+
+逐步决策、变量颗粒度、输入输出与源码证据见[松下项目决策详解](C:/Users/HP/Desktop/application_material/meta/松下项目_决策过程与输入输出详解.md)。本节保留约 2–3 分钟的主陈述，工序与耦合关系说明约需 30–40 秒。
 
 ### Q4. Tell me about a product-like initiative you led.
 
@@ -115,13 +118,17 @@
 
 在松下电子材料，我负责生产计划系统的算法方案，用户是生产计划员。难点在于协调物料、交期承诺、设备和模具。
 
-> I designed a layered approach and agreed it with the customer’s IT and PC teams. The monthly model identified material shortages. Orders flagged as short were held for procurement confirmation before we replied with a delivery date.
+> For copper-clad laminate orders, the process involved drying, forming, and cutting before delivery. Drying supplied intermediate materials for forming, where batches depended on equipment, molds, and material compatibility. Forming had to wait for its required materials, while order priorities determined what drying should produce first. Grouping production could reduce changeovers but delay urgent orders, so the stages had to be planned together.
 
-我设计了分层方案，并与客户 IT、PC 团队共同确定。月模型识别缺料；缺料订单先等待采购确认，再回复交期。
+以覆铜板订单为例，生产经历干燥、成型及裁切后交付。干燥提供成型所需的半成品，成型批次受设备、模具和材质兼容性限制。成型需要等待所需物料齐备，而订单优先级又决定干燥先生产什么。集中生产可以减少切换，却可能延误紧急订单，因此需要联合安排各环节。
 
-> For detailed resource planning, I kept PC’s material calendar because it was relatively stable. I limited detailed mold planning to the near-term sixty-day window, since orders further out were sparse and did not need early mold commitments.
+> I designed a layered approach and agreed it with the customer’s IT and PC teams. Products had many production-route and alternative-material options, so MRP selected the relevant routes first. Narrowing those choices was critical to controlling the downstream model size and improving solve times. MRP also identified shortages; affected orders waited for procurement confirmation before we replied with delivery dates.
 
-在详细资源计划中，我保留了相对稳定、由 PC 制定的材质日历。模具只细化近 60 日，因为远期订单稀疏，无需提前确定模具安排。
+我设计了分层方案，并与客户 IT、PC 团队共同确定。成品有很多生产路径和替代料选择，因此先通过 MRP 选定相关路径，收敛下层模型的候选范围。这对控制下层模型规模、提升求解效率至关重要。MRP 同时识别缺料，相关订单等待采购确认后再回复交期。
+
+> In daily MPS, the main decisions were production volumes across lines and mold usage plans. A heuristic proposed local mold changes, considering mold availability and the impact on existing orders. The optimization model then re-solved the production plan, and we iterated to improve mold-capacity matching. I kept PC’s drying material calendar because it was relatively stable.
+
+在日度 MPS 中，主要决策是不同产线的产量和模具使用计划。启发式算法结合模具可用数量及对已有订单的影响，提出局部换模方案，再由优化模型重新求解生产计划，通过迭代改善模具与产能的匹配。干燥的材质日历仍由 PC 制定并作为输入保留，因为它相对稳定。
 
 > PC then selected confirmed finished-goods quantities from the master plan, and the back-end system converted them into APS demands. APS and its post-processing turned the quantities into mold assignments and furnace-batch details.
 
@@ -135,9 +142,11 @@
 
 主要产品体会是：让决策精度与已有信息相匹配，并明确计划、采购和详细排程之间的交接。
 
-**故事拆解：** PC 的供需与交期决策 → 本人设计分层、跨部门共同确定 → 缺料等待采购确认 → 稳定材质日历由 PC 给定、模具近端细化 → PC 确认成品量并由后台转 APS → 费用估算与计划交期指标。
+**故事拆解：** 工序耦合且路径／替代料选择多 → 本人设计分层、跨部门共同确定 → MRP 先选路径以控制下层规模，同时诊断缺料 → 日度 MPS 决定各产线产量及模具计划，以启发式换模和优化重算迭代协调，保留 PC 干燥材质日历 → PC 确认成品量并由后台转 APS → 费用估算与计划交期指标。
 
-**三项可重点追问的真实判断：** 为什么缺料订单不立即回复交期；为什么保留 PC 材质日历；为什么只细化近 60 日模具。代码取前 60 个 period，本人说明现场为 60 日，技术展开时区分配置与业务口径。
+**三项可重点追问的判断：** 为什么缺料订单不立即回复交期；为什么保留 PC 干燥材质日历；启发式换模如何与优化重算配合，以及怎样考虑已有订单的影响。60 日范围保留在技术详解中，主陈述不主动展开。
+
+**计算层面的核心追问：** 为什么 MRP 要先选生产路径／替代料？回答要点：候选很多，与详细时间和资源组合后规模更大；先收敛路径，再细化资源，对后续求解效率至关重要。具体筛选接口与取舍见详解第 7 节。
 
 **不能扩写：** 已独立拥有整个产品路线图、采购与工厂协同已形成自动闭环、所有模型结果都在产线上验证、实际交付率达到 99.9%。
 
@@ -181,7 +190,43 @@ M6S 经历说明了这件事的重要性：需求在总产能层面看似完整�
 
 这是新产品的假设取舍，不把松下项目的实际迭代顺序改写成正式 MVP 路线图。
 
-## 4. ATL 两个案例：交付与反思
+## 4. ATL：规模扩展、交付与反思
+
+逐步决策、颗粒度、输入输出、旧版源码证据与英文追问见 [ATL 项目决策详解](C:/Users/HP/Desktop/application_material/meta/ATL项目_决策过程与输入输出详解.md)。本节先讲整体方案，再按问题选用 IT 分歧或 M6S 反思，不需要一次讲完三个故事。
+
+### 整体项目陈述：如何为更大工厂重新划分决策，约 2 分钟
+
+> At ATL, the original solution had daily planning. When it expanded from Dongguan to the much larger Ningde factory, the model needed a different structure to handle the scale. I added a master planning layer to allocate demand before detailed scheduling.
+
+在 ATL，原方案只有日计划。从东莞推广到规模大得多的宁德工厂时，需要改变模型结构才能承载规模。我增加主计划层，在详细排程前先分配需求。
+
+> After master planning, the system ran daily planning jobs in a distributed setup, without a separate planner review of the master plan. The master output informed demand allocation and the resource choices available to the daily jobs.
+
+主计划完成后，系统直接分布式运行日计划，不额外经过 PC 对主计划的审核。主计划输出用于下层需求分配及可选资源范围。
+
+> I used a capacity discount in master planning to leave room for detailed constraints. During the first six months after deployment, we did not see daily-plan shortfalls caused by incorrect master allocations. The trade-off was additional changeovers.
+
+我在主计划中使用产能折扣，为详细约束留余量。上线半年，没有出现因主计划分配错误导致的日计划欠交；代价是增加额外转型。
+
+> Daily planning focused on continuous production batches and machine assignments. I also added a post-scheduling correction model to handle finer changeover and capacity effects while keeping the main schedule structure. This kept the main problem manageable, while allowing detailed adjustments afterward.
+
+日计划专注于连续生产批次和机台搭配。我还增加排程后校正模型，在保留主要排程结构的基础上处理更细的换型及产能影响，让主要问题规模可控，再作细节调整。
+
+> I designed an iterative solution approach that started with a sparse set of candidate batches, then used the solve results to add candidates progressively and re-solve. This controlled the initial model size while expanding the available choices over successive iterations.
+
+我设计了迭代求解机制：初始仅使用稀疏候选批次，再根据求解结果逐步增加候选并重新求解。这让初始模型规模可控，同时在后续迭代中逐步丰富可选方案。
+
+> The product lesson was to decide which level should own each decision and make the handoffs explicit. I also learned to measure the cost of simplification, including extra changeovers and the planner’s review effort.
+
+产品上的体会是：明确每一层负责什么决策，并定义清楚层间交接；同时关注简化的代价，包括额外转型和计划员的审核投入。
+
+**故事拆解：** 东莞推广宁德，原日计划规模受限 → 本人增加主计划 → 主计划产能折扣留余量 → 无 PC 中间审核，直接分布式日计划 → 日计划聚焦批次与机台搭配，本人设计稀疏候选起步、按求解结果逐步扩展并重算 → 本人增加校正层处理更细约束 → 观察分配风险及额外转型的取舍。
+
+**本人三项主要设计贡献：** 增加主计划以拆分宁德规模问题；设计稀疏候选批次起步、按求解结果逐步扩展的迭代求解机制；增加排程后校正层以处理更细的换型与产能影响。
+
+**与松下的区别：** ATL 主线是规模扩展与批次／机台决策的分层。不要套用松下 MRP 先选生产路径／替代料的原因；当前 ATL 备份也不支持“所有路径由主计划锁死”。
+
+**证据边界：** 分布式是本人确认的现场部署，备份单入口内部仍按任务块顺序循环，外层派发实现未核实。半年观察仅说明未见主计划分配错误导致的下层欠交，不代表所有订单零欠交或实际交付率 100%。产能折扣比例及校准方式尚未补充。
 
 ### Q7. Tell me about influencing a cross-functional partner.
 
@@ -211,9 +256,9 @@ M6S 经历说明了这件事的重要性：需求在总产能层面看似完整�
 
 ### Q8. Tell me about a failure or a requirement you missed.
 
-> In ATL’s M6S scheduling project, my initial model met aggregate capacity limits but missed how winding machines shared supporting equipment during a continuous batch. The equipment could not switch freely between batches, so the resulting plan could not be executed as intended.
+> In ATL’s M6S scheduling project, the earlier model already encouraged winding machines to start and finish together. But it did not fully capture how they shared supporting equipment during a continuous batch. That equipment could not switch during the batch, so aggregate capacity and a synchronization objective were not enough to make the plan workable.
 
-在 ATL M6S 排程项目中，我最初的模型满足总产能限制，却遗漏了连续批次中卷绕机台如何共享旁工序设备。设备无法在批次之间自由切换，因此计划无法按预期执行。
+在 ATL M6S 排程项目中，旧版模型已经鼓励卷绕机台同开同收，但没有充分表达连续批次中的旁工序设备共享。旁工序设备在批次中不能切换，因此仅有总产能和同步目标仍不足以让计划可执行。
 
 > I corrected the candidate batches to include compatible combinations of winding and supporting machines. To control complexity, I used business experience to keep the more efficient combinations.
 
@@ -228,6 +273,8 @@ M6S 经历说明了这件事的重要性：需求在总产能层面看似完整�
 这让我认识到，计划产品必须体现用户真实的运行限制。在以后的工作中，我会更早验证有代表性的生产场景，并将这个案例作为回归测试场景。
 
 最后一句是从经历推导的建议改进，使用 would；没有证据时不说已建立了完整回归体系。时间改善是项目后续结果，不证明只由这一次修正单独造成。
+
+**版本口径：** `D:/yhl_back/atl_aps_2021` 是后续组合批次改进之前的旧版。后续改进来自本人确认，不将备份中的固定拉线同步或配套数量约束说成完整的后续 M6S 实现。不要说“旧版完全没有同步考虑”。
 
 **追问：Who validated it?**
 
@@ -294,29 +341,53 @@ AI 可以帮助整理非结构化信息或解释结果，但不应在用户不�
 
 我会先了解用户有多少决策时间，以及多大改善才有价值。日常计划和紧急异常可能需要不同的响应速度。
 
-> At ATL, sparse candidate batches and selective expansion helped control model size. At Panasonic, different planning levels addressed different decisions. These approaches involve trade-offs, so I would measure final feasibility and business quality along with runtime.
+> At ATL, I added master planning to divide the larger Ningde problem, and a correction layer to handle finer scheduling effects. I also designed an iterative mechanism that started with sparse candidate batches, then progressively added candidates and re-solved based on the solve results. These choices involved trade-offs, including extra changeovers, so I would measure final feasibility and business quality along with runtime.
 
-在 ATL，稀疏备选批次和选择性扩展帮助控制模型规模；在松下，不同计划层次处理不同决策。这些方法都有取舍，因此我会同时衡量最终可行性、业务质量和运行时间。
+在 ATL，我增加主计划来拆分更大规模的宁德问题，并增加校正层处理更细的排程影响。我还设计了初始使用稀疏候选批次、按求解结果逐步增加候选并重新求解的迭代机制。这些选择存在额外转型等代价，因此我会同时衡量最终可行性、业务质量和运行时间。
 
-不要把启发式候选扩展说成严格列生成或全局最优保证，也不未经核实称所有工厂已经并行。
+不要把启发式候选扩展说成严格列生成或全局最优保证。现场主计划后分布式运行日计划已由本人确认，但不扩写为所有工厂、所有阶段均并行，或虚构调度框架。
 
 ## 6. 可复用框架与 AI：体现产品化能力
 
+流程、领域对象、对象灵活使用、多求解器适配和建模标准化的代码分析，见 [MPS／SOP／MRP 一体化框架详解](C:/Users/HP/Desktop/application_material/meta/MPS_SOP_MRP一体化框架_产品设计与技术详解.md)。框架的直接用户是新手算法工程师；业务计划员使用其交付的计划方案。
+
 ### Q13. How would you turn customer projects into a reusable product?
 
-> In the supply chain planning framework, I separated shared capabilities from customer-specific extensions. The shared foundation included data preparation, domain objects, model building, solving, post-processing, and KPI output.
+> I led the algorithm work on a shared framework for MPS, S&OP, MRP, and customer-specific daily planning. Its main users were junior algorithm engineers. The goal was to help them build solutions without recreating data handling, model infrastructure, solver integration, and result processing for each project.
 
-在供应链计划框架中，我区分了共用能力与客户特定扩展。共用基础包括数据准备、领域对象、模型构建、求解、后处理和 KPI 输出。
+我负责 MPS、S&OP、MRP 和客户日计划共用框架的算法工作。主要用户是新手算法工程师，目标是让他们构建方案时，不必为每个项目重做数据处理、模型基础、求解器集成和结果处理。
 
-> We used shared code and targeted extensions rather than copying a complete model for every customer. Standardized logs and intermediate results also helped diagnose issues across projects.
+> MPS, MRP, and S&OP planning problems are all well suited to discrete-time production planning models. They share demand, material flows, inventory, and production decisions across time periods. That common structure gave us a reusable modeling foundation, with differences handled through capacity rules, constraints, and objectives.
 
-我们通过共用代码和有针对性的扩展支持客户差异，而非为每个客户复制完整模型。标准日志和中间结果也帮助跨项目排查问题。
+MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模型。它们共同涉及各时段的需求、物料流、库存和生产决策。这些共性形成了可复用的建模基础，再通过能力规则、约束和目标体现差异。
+
+> We organized the workflow around shared domain objects, from materials at stock points to production steps, resources, demand, and supply. The domain model was not entirely my individual design; it largely drew on my earlier work at AUX. The product manager designed the product interfaces based on those objects.
+
+我们围绕共用领域对象组织流程，包括物料库存点、工序、资源、需求和供应。领域对象并非全部由我独立设计，但基本参考了我此前在奥克斯项目的设计。产品经理依据这些对象设计产品接口。
+
+> The planning modules reused the foundation with different capacity rules and extensions. We could also represent some exceptions through virtual materials and routing structures. At Panasonic, customer-specific substitution choices used virtual stock points and routing steps, with post-processing restoring the original business meaning.
+
+不同计划模块复用底座，通过能力规则和扩展体现差异。部分例外还可以通过虚拟物料与路径表达。例如松下用虚拟库存点和工艺步骤表达客户专用替代选择，再由后处理还原业务含义。
+
+> I personally designed and implemented the solver adaptation layer for Gurobi and CPLEX, with an optional Pyomo path. We standardized common model components, sequential objectives, solution extraction, and diagnostics. Engineers could then focus on the rules that differed, using targeted input, model, and output extensions.
+
+我本人完整设计开发了 Gurobi 与 CPLEX 求解器适配层，并保留可选 Pyomo 路径。框架标准化了共用模型组件、顺序目标、解提取和诊断，让工程师通过输入、模型和输出的局部扩展，集中处理不同的业务规则。
+
+> The product lesson was to make the common path easy to follow while keeping clear extension points. I would measure time to a correct first model, delivery effort, and the quality of the final planning outputs.
+
+产品上的体会是，让共用流程容易遵循，同时保留明确的扩展位置。我会看首个正确模型的完成时间、交付投入和最终计划质量。
 
 > For a product roadmap, I would group requests by the underlying user problem and promote a capability into the core when it solves a recurring need. A rare rule could remain an extension. I would also consider configuration complexity and regression risk.
 
 在产品路线图上，我会按底层用户问题归类需求；某项能力反复被需要时，再考虑纳入核心。少见规则可以保留为扩展，同时评估配置复杂度和回归风险。
 
-前两段有简历依据；最后一段是对产品职责的建议做法。框架代码复用本身不证明做过付费产品定价、市场选择或正式路线图治理。
+**贡献记忆：** 本人负责算法工作流设计与工程师指导；求解器适配由本人完整设计开发；领域对象为共同成果、基本参考本人奥克斯设计；产品接口由 PM 基于对象设计。前述指标与路线图为建议方法，未补充具体对比数值。代码复用不直接证明做过付费产品定价或正式商业路线图治理。
+
+**可复用性记忆：** 三类问题适合相同的离散时间生产计划建模范式 → 共用时间、物料流平衡、对象及模型组件 → 以能力规则、约束、目标与粒度表达差异 → 新人掌握一套基础即可扩展到多个计划场景。
+
+**技术追问顺序：** PSP 为何同时表达物料和位置 → 替代选择怎样转成虚拟网络、怎样还原 → 求解器适配封装什么 → 标准组件与客户覆盖怎样分工 → 顺序求解怎样保护前序结果。完整中英回答见详解第 12 节。
+
+**一体化的口径：** 共用对象、模型流程与结果结构；不声称三类计划已自动串成经营闭环。适配层支持不同后端，不等于全部高级能力和参数语义完全一致。
 
 ### Q14. How do you handle inconsistent data definitions?
 
@@ -439,6 +510,10 @@ AI 可以帮助整理非结构化信息或解释结果，但不应在用户不�
 
 ### Q18. How would you roll the product out to more sites?
 
+> At ATL, moving from Dongguan to the much larger Ningde factory required an architectural change: I added master planning before the daily jobs. That taught me to check scale as well as local rules when extending a solution to another site.
+
+在 ATL，从东莞推广到规模大得多的宁德工厂，需要调整架构：我在日计划之前增加主计划。这让我认识到，跨工厂推广时，既要核对当地业务规则，也要检查规模变化。
+
 > I would compare which parts of the workflow and rules are shared and which are site-specific. A successful pilot is useful evidence, but it does not prove the same model works unchanged everywhere.
 
 我会比较哪些流程和规则是共通的，哪些是工厂特定的。试点成功是有用证据，但不能证明同一模型可以不变地用于所有地方。
@@ -475,6 +550,12 @@ AI 可以帮助整理非结构化信息或解释结果，但不应在用户不�
 | ATL 3 小时 → 20 分钟 | PC 审核及人工调整计划时间 | 算法运行时间或所有计划工作总工时 |
 | ATL 90% | 计划部门拟减少的 PC 人员比例，执行未确认 | 已实现的人数或工作量下降 |
 | ATL 输入版本 | ATL 维护，版本管理已实施 | 只有口头建议，或本人开发全部前后端 |
+| ATL 设计贡献 | 原来只有日计划，本人增加主计划和排程后校正，并设计稀疏候选逐步扩展的迭代求解机制 | 全部原有日计划与应用系统均为本人原创 |
+| ATL 运行交接 | 主计划后不经 PC 审核，直接分布式运行日计划 | PC 审批主计划后才启动；旧版单入口循环已证明分布式实现 |
+| ATL 半年观察 | 未见因主计划分配错误导致的日计划欠交；产能余量会增加转型 | 所有需求零欠交、无效率代价、实际交付率 100% |
+| ATL M6S 版本 | 旧版已有同步目标，后续将资源组合纳入候选批次 | 旧版毫无同步考虑、当前备份包含完整后续改进 |
+| 计划框架用户 | 帮助新手算法工程师快速上手并交付计划模型 | 已证明所有客户均数日完成全项目上线 |
+| 计划框架分工 | 本人完整设计开发求解器适配；领域对象参考奥克斯设计但非全部独立原创；产品接口由 PM 设计 | 全部领域对象与产品接口均由本人独立设计 |
 | 驻场 | 长期客户驻场，主要与计划员合作 | 长期直接负责 SMT/FATP 工艺、良率或设备调试 |
 | 供应链 | 制造计划、物料/产能、MPS/APS/MRP/S&OP 相关能力 | 所有供应链职能均有实操，完整 S&OP 管理机制由本人运营 |
 | 汇丰 98% | 项目 benchmark 的客户状态识别准确率 | 全量生产表现、制造质量指标 |
@@ -507,14 +588,15 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 
 ## 11. 面试前复习顺序与词汇
 
-### 最先练熟的六题
+### 最先练熟的七题
 
 1. 90 秒自我介绍。
 2. 为什么适合 Product Manager：经历相关，但不改写正式职位。
 3. 松下：用户、决策、取舍、结果。
-4. ATL IT：可复现输入与版本管理。
-5. ATL M6S：遗漏需求、修正、PC 审核调整时间。
-6. 如何确定 MVP 与衡量产品价值。
+4. ATL 整体：宁德规模、本人新增两层与稀疏候选迭代机制、产能余量与额外转型。
+5. ATL IT：可复现输入与版本管理。
+6. ATL M6S：同步目标的不足、资源组合修正、PC 审核调整时间。
+7. 如何确定 MVP 与衡量产品价值。
 
 ### 练习标准
 
@@ -560,7 +642,11 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 ## 12. 资料依据与阅读说明
 
 - 本人简历、前述面试指南及对话中确认的项目事实；数字以本稿第 9 节为准。
+- 项目细节见 [松下决策详解](C:/Users/HP/Desktop/application_material/meta/松下项目_决策过程与输入输出详解.md) 与 [ATL 决策详解](C:/Users/HP/Desktop/application_material/meta/ATL项目_决策过程与输入输出详解.md)。ATL 当前备份用于解释旧版，后续 M6S 改进以本人补充为依据。
+- 一体化框架见 [产品设计与技术详解](C:/Users/HP/Desktop/application_material/meta/MPS_SOP_MRP一体化框架_产品设计与技术详解.md)，结合 SCP 与松下源码，并保留本人、产品经理与团队的实际分工。
 - 本稿的 Product Manager 定位来自联系人描述及本人理解，没有将此前现场工程 JD 认定为已正式改写。
 - 内部决策产品、MVP 与 90 天计划是针对本次定位设计的准备建议，并非已发生的本人经历或已知 Meta 团队规划。
 - 产品管理涉及用户、业务和技术协同的一般背景可参考 [Atlassian Product Management](https://www.atlassian.com/agile/product-management)。这不是 Meta 的职责定义。
 - 供需与产能计划的通用问题范围可参考 [Microsoft Master Planning](https://learn.microsoft.com/en-us/dynamics365/supply-chain/master-planning/master-planning-home-page)。本稿不假设 Meta 使用该产品，也不将其功能当作本人已实现的功能。
+
+

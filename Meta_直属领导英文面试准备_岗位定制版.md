@@ -62,7 +62,7 @@ ATL 规模化和通用框架保留作技术追问。除非面试官主动问优�
 >
 > I was the algorithm lead. I worked with the production planning team to understand the requirements and led the planning solution design.
 >
-> We separated monthly material analysis, daily resource planning, and short-term scheduling. For mold-calendar decisions, we combined optimization with local adjustments, checking available mold sets and the effect on existing orders before re-solving the plan.
+> We separated MRP analysis, daily resource planning, and short-term scheduling. For mold-calendar decisions, we combined optimization with local adjustments, checking available mold sets and the effect on existing orders before re-solving the plan.
 >
 > After deployment, mold changes decreased by around ten per month. Panasonic estimated the cleaning cost at RMB 30,000 per change, so the estimated monthly savings were about RMB 300,000.
 >
@@ -391,4 +391,6 @@ FPY 练习：1,000 件首次测试，900 件首次通过，后续复测又通过
 可留作深入追问准备的细节：3 小时和 20 分钟对应的计划规模、是否为典型值或平均值；松下本人亲自实现与他人承担的模块；确认交期指标按订单还是数量统计。这些不会阻止当前稿件练习。
 
 这些细节不会阻止当前练习。实际生产执行效果、直接工艺/测试/良率工程职责均不能由 PC 审核和驻场经历推导。
+
+
 
