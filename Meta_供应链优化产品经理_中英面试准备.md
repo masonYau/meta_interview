@@ -54,27 +54,44 @@
 
 我还负责可复用计划框架的算法设计，帮助新手工程师更快构建方案，并亲自完整设计开发求解器适配层。这让我关注哪些能力应当共用，哪些应当保留为客户定制。
 
-> I’m interested in a product role where I can combine this technical background with user understanding, prioritization, and cross-functional delivery to improve planning decisions.
+> I’m interested in a product-oriented role close to manufacturing operations, where I can apply this background and grow toward designing complete planning solutions grounded in how production actually works.
 
-我希望在产品岗位中，将技术背景与用户理解、优先级判断和跨团队交付结合起来，改善计划决策。
+我希望承担贴近制造运营、偏产品的职责，发挥已有技术背景，并逐步具备基于真实生产流程设计完整计划解决方案的能力。
 
 记忆顺序：背景 → 当前 → 制造用户与交付 → 可复用框架 → 为什么产品岗位。不要主动说自己已有正式 Product Manager 职位或完整商业产品经营责任。
 
 ## 2. 为什么适合产品经理，为什么从算法转向产品
 
+### 意愿类问题的统一主线
+
+**长期目标：** 逐步具备架构并推动完整供应链／制造计划解决方案落地的能力。为此，希望深入理解参数如何形成、计划怎样执行、异常怎样处理，以及执行反馈如何反过来改善数据、模型和产品。
+
+**岗位吸引力：** 希望更贴近生产现场，与计划、运营及相关工程团队合作，理解生产速率、良率、换型时间和有效产能等参数的定义、测定与维护；直接观察计划执行中暴露的问题，将这些发现用于需求、优先级、模型假设和产品流程的改进。现场参与范围仍需向面试官了解。
+
+**对团队的贡献：** 用已有制造计划、优化建模和跨团队交付能力解决当下问题，并将现场反馈沉淀为更准确的输入、更贴合实际的规则、有代表性的验证场景和更易用的工具。成长目标与业务成果相连。
+
+| 问题 | 回答侧重 |
+|---|---|
+| 为什么选择这个岗位 | 现场与产品职责如何帮助自己补齐完整方案能力，以及能作出的贡献 |
+| 为什么从算法转向偏产品职责 | 扩大从需求、优先级到实际使用效果的责任 |
+| 为什么离开汇丰 | 肯定已有收获，解释长期深耕制造与供应链的方向 |
+| 下一份工作希望获得什么 | 更完整的问题责任、现场反馈、跨团队方案设计机会 |
+| 长期职业目标是什么 | 能设计、推动实施并持续改进完整计划方案的 IC |
+| 为什么是 Meta／RL | 结合本人对具体业务或产品的真实兴趣，再说明岗位匹配；以下职业目标不能单独替代公司特定动机 |
+
 ### Q1. Why do you want to move into product management?
 
-> What interests me most is helping users make better decisions. In my previous projects, choosing the right problem and clarifying the business rules were as important as the algorithm itself.
+> My long-term goal is to design and deliver complete manufacturing and supply chain planning solutions. In my previous projects, understanding the user’s decision and clarifying business rules were as important as the optimization method.
 
-我最感兴趣的是帮助用户作出更好的决策。在过去的项目中，选对问题和明确业务规则，与算法本身同样重要。
+我的长期目标是设计并推动完整制造与供应链计划方案落地。在过去的项目中，理解用户决策、明确业务规则，与优化方法本身同样重要。
 
 > For example, at Panasonic we had to distinguish material shortages from resource constraints, and confirmed commitments from newly requested dates. These choices affected the value of the solution before we discussed the mathematical method.
 
 例如在松下，我们需要区分缺料问题和资源限制，也需要区分已确认交期承诺和新增需求的期望日期。这些选择在讨论数学方法之前，就已经决定了方案的价值。
 
-> I want to take more responsibility for understanding user needs, deciding what to build first, and following the result through to actual use. My optimization background helps me judge feasibility and trade-offs, while I continue developing broader product skills.
+> A product-oriented role would let me take broader responsibility for user needs, priorities, and actual use. I want to work closely with operations and engineering teams, use execution feedback to improve the solution, and build the judgment needed to connect business requirements, planning models, and system workflows. My optimization background helps me assess feasibility and trade-offs.
 
-我希望更多地负责理解用户需求、决定先做什么，以及持续跟进产品的实际使用效果。优化背景帮助我判断可行性和取舍，同时我也会继续发展更全面的产品能力。
+偏产品职责能让我更多地负责用户需求、优先级和实际使用。我希望与运营、工程团队密切合作，通过执行反馈改善方案，发展连接业务需求、计划模型与系统流程的判断力。优化背景则帮助我判断可行性和取舍。
 
 **重点：** 不是因为不想开发或协调，而是希望扩大从问题到使用效果的责任。正式路线图、产品发现、用户推广等职责如果过去没有独立承担，表达为希望进一步承担。
 
@@ -90,21 +107,75 @@
 
 **追问准备：** 哪些需求是你提出的？哪些是 PC 决定的？你是否有最终优先级决定权？预算和发布时间谁负责？没有正式决策权不妨碍讲清你如何提供依据并影响决定。
 
-### Q3. Why Meta and this opportunity? Why leave HSBC?
+### Q3. Why are you interested in this role?
 
-> HSBC has broadened my experience in capacity planning and aligning data and business definitions across teams. I value that experience.
+> My long-term goal is to architect and deliver end-to-end supply chain and manufacturing planning solutions. Based on what I understand, this role could help me combine my optimization background with closer involvement in manufacturing operations.
 
-汇丰拓展了我在产能规划，以及跨团队统一数据和业务定义方面的经验，我很重视这些收获。
+我的长期目标是架构并推动完整供应链与制造计划方案落地。根据目前了解到的信息，这个岗位有机会让我把优化背景与更深入的制造运营参与结合起来。
 
-> My long-term interest is in manufacturing and supply chain decision-making. Based on what I understand about this opportunity, it could let me combine my optimization background with broader ownership of planning tools and cross-functional outcomes.
+> I want to understand how production rates, yields, and other planning inputs are measured and maintained. I also want to observe how plans are executed, where problems arise, and how planners and engineers respond. That would help me make better decisions about requirements, model assumptions, and product priorities.
 
-我的长期兴趣在制造与供应链决策。根据目前了解到的信息，这个机会可能让我把优化背景与更完整的计划工具责任、跨团队工作成果结合起来。
+我希望理解生产速率、良率等计划输入如何测定和维护，也希望直接观察计划怎样执行、问题在哪些环节出现，以及计划员与工程师如何应对。这些认识能帮助我更好地判断需求、模型假设和产品优先级。
 
-> I would like to understand which user decisions this role is expected to improve and where the team sees the biggest unmet need.
+> I would bring experience in manufacturing planning, scalable optimization, and cross-functional delivery. I’d like to use that experience to improve planning decisions while developing a stronger understanding of the full solution, from operational data to execution feedback.
 
-我也希望了解，这个岗位具体希望改善用户的哪些决策，以及团队认为当前最大的未满足需求是什么。
+我能带来制造计划、可扩展优化和跨团队交付经验，希望用这些经验改善计划决策，同时加深对从运营数据到执行反馈的完整方案的理解。
 
-此稿不假设某个 Meta 内部计划产品已经存在，也不代写未体验过的智能眼镜产品经历。
+**表达重点：** 更贴近现场是职业目标的一部分，也应服务于更可靠的计划、更有效的问题处理和更好的用户体验。具体驻厂、参数测定参与和计划执行跟踪范围尚需了解，英文使用 could、want to、would。
+
+### Q3 追问：Why leave HSBC?
+
+> HSBC has broadened my experience in capacity planning, data preparation, and aligning business definitions across teams. Those skills are valuable for building integrated planning solutions.
+
+汇丰拓展了我在产能规划、数据准备及跨团队统一业务定义方面的经验。这些能力对构建一体化计划方案很有价值。
+
+> My long-term direction is manufacturing and supply chain planning. I want to deepen my understanding of how production data is created, how plans are carried out, and how execution feedback improves the next planning cycle. I’m looking for an opportunity to combine that operational understanding with my optimization and product skills.
+
+我的长期方向是制造与供应链计划。我希望深入理解生产数据如何形成、计划如何执行，以及执行反馈如何改善下一轮计划，并将这种运营理解与已有的优化和产品相关能力结合起来。
+
+**Why Meta／RL 的补充原则：** 上述回答说明岗位和职业方向的匹配；具体公司动机仍需结合本人对 Meta／RL 的真实兴趣。不假设内部计划产品已经存在，也不代写未体验过的产品经历。
+
+### Q3 补充：What are you looking for in your next role, and how could Meta fit your goals?
+
+> In my next role, I’m looking for broader ownership of the problem—from understanding operational needs to defining priorities and following the solution into use.
+
+在下一份工作中，我希望承担更完整的问题责任：从理解运营需求、确定优先级，到持续跟进方案的实际使用。
+
+> I also want to develop the ability to architect end-to-end supply chain and manufacturing planning solutions. That means connecting business requirements, data and domain models, planning layers, system interfaces, and operational workflows into a coherent solution.
+
+我也希望逐步具备从整体架构到落地，设计完整供应链与制造计划解决方案的能力：将业务需求、数据与领域模型、不同层次的计划、系统接口及运营工作流程衔接成一个完整方案。
+
+> To develop that ability, I want direct exposure to how planning parameters are established and how plans perform in production. I want to bring those observations back into data definitions, planning rules, validation scenarios, and user workflows. I’d like to understand how this role supports that responsibility and growth as an individual contributor.
+
+为发展这种能力，我希望直接了解计划参数如何确定，以及计划在生产中表现如何，再将观察反馈到数据定义、计划规则、验证场景和用户流程中。我也希望了解，这个岗位如何支持这些责任，以及作为个人贡献者有哪些成长机会。
+
+**记忆顺序：** 更完整的问题责任 → 完整方案架构 → 参数来源与现场执行 → 反馈改进数据、规则和产品 → 核实岗位机会。
+
+**表达边界：** 完整方案架构是本人的成长目标，涵盖业务、计划模型、产品与系统的协同设计；不是声称已经独立拥有全部能力，也不预设 Meta 已确认提供这些职责。回答具体公司动机时，仍需结合本人对 Meta／RL 的真实兴趣。
+
+### 职业目标追问：What would you like to grow into over the next few years?
+
+> I want to grow into an individual contributor who can design and drive the delivery of complete planning solutions. I want to connect operational needs, reliable data, planning models, system interfaces, and execution feedback, and make sound trade-offs across those areas. I would measure that growth through solutions that users can operate, results that we can evaluate, and capabilities that can be reused across planning scenarios.
+
+我希望成长为能够设计并推动完整计划方案交付的个人贡献者，连接运营需求、可靠数据、计划模型、系统接口与执行反馈，并能在这些方面作出合理取舍。我会用用户能否实际使用、结果能否评估、能力能否在不同计划场景中复用，衡量自己的成长。
+
+### 追问：How would you contribute while building more shop-floor understanding?
+
+> I can contribute immediately through planning problem definition, optimization design, and coordination with planners and IT teams. When working with operations and engineering partners, I would use concrete planning exceptions to understand missing assumptions, data issues, and workflow gaps. The goal would be to turn what I learn into better requirements, more representative validation cases, and measurable workflow improvements.
+
+我可以先通过计划问题定义、优化方案设计，以及与计划员和 IT 协调作出贡献。与运营和工程伙伴合作时，我会从具体计划异常出发，理解遗漏的假设、数据问题和流程缺口，再将这些认识转化为更好的需求、更有代表性的验证场景，以及可衡量的工作流程改善。
+
+### 深入追问时可展开的五个学习与贡献方向
+
+| 方向 | 希望进一步理解什么 | 如何服务于完整方案 |
+|---|---|---|
+| 参数来源 | 生产速率、良率、换型时间、有效产能如何定义、测定和维护；适用哪些产品、设备、时间范围与生产状态 | 与参数负责团队确认适用口径，让数据和模型假设一致 |
+| 计划执行 | 哪些安排被执行、人工修改或暂缓；真实缺口在哪里、由谁处理 | 明确工具应输出什么、保留什么人工决策与异常处理入口 |
+| 场景与约束 | 新产品、设备状态变化、物料异常等情况下，哪些原有规则不再适用 | 将具体异常转成需求、规则与代表性验证场景 |
+| 反馈与更新 | 执行问题如何记录、追溯到输入和规则，更新后由谁确认 | 设计计划与执行之间可追溯的反馈流程 |
+| 架构与复用 | 哪些能力跨场景共用，哪些必须按工厂或产品扩展；不同计划层怎样交接 | 在可维护性、求解效率、用户使用和推广成本之间作取舍 |
+
+以上是希望进一步发展和贡献的方向，不扩写为本人已有参数测定、良率工程或完整执行反馈体系的经历。口述先选与问题最相关的一两点，不逐项背表。
 
 ## 3. 松下主案例：从用户问题到产品方案
 
@@ -630,6 +701,18 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 
 已有工具和计划流程是什么？目前最大的缺口在哪里？
 
+> How much opportunity would this role have to shape the overall design of supply chain and manufacturing planning solutions, from business requirements through implementation?
+
+这个岗位有多少机会参与供应链与制造计划完整方案的整体设计，从业务需求一直跟进到实现？
+
+> How closely does this role work with factory operations and engineering teams to understand planning inputs, such as production rates and yields, and follow up on issues during plan execution?
+
+这个岗位会多深入地与工厂运营、工程团队合作，理解生产速率、良率等计划输入，并跟进计划执行中的问题？
+
+> How does feedback from production reach the teams responsible for planning data, models, and tools? What part of that process would this role own?
+
+生产执行反馈如何传递给负责计划数据、模型和工具的团队？这个岗位负责其中哪些环节？
+
 现场选两三题，不逐一问完。先自然核实产品职责，避免开场称“我知道这个岗位不做现场工作”，因为这点尚未确认。
 
 ## 11. 面试前复习顺序与词汇
@@ -637,7 +720,7 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 ### 最先练熟的七题
 
 1. 90 秒自我介绍。
-2. 为什么适合 Product Manager：经历相关，但不改写正式职位。
+2. 岗位与职业目标：完整方案架构、理解参数来源与现场执行、反馈改进；再说明相关产品能力，不改写正式职位。
 3. 松下：用户、决策、取舍、结果。
 4. ATL 整体：宁德规模、本人新增两层与稀疏候选迭代机制、产能余量与额外转型。
 5. ATL 三方协作：开发成本、工程化与生产使用目标；数据依赖、真实排障、分阶段承诺与版本管理。

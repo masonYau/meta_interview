@@ -1,6 +1,6 @@
 # Meta Manufacturing Operations Engineer：直属领导英文面试准备
 
-更新：2026-11-03（ATL 三方协作案例）；岗位定制稿初版：2026-10-29。基于本人简历、Meta Initial IC 指南、本次提供的完整 JD，以及本人补充的 ATL/松下事实。本稿取代此前通用初稿中的岗位定位和待填案例。以下英文是建议口述稿，问题为推演练习题，并非官方题库。
+更新：2026-11-03（ATL 三方协作案例及职业动机）；岗位定制稿初版：2026-10-29。基于本人简历、Meta Initial IC 指南、本次提供的完整 JD，以及本人补充的 ATL/松下事实。本稿取代此前通用初稿中的岗位定位和待填案例。以下英文是建议口述稿，问题为推演练习题，并非官方题库。
 
 ## 1. 收到 JD 后的关键判断
 
@@ -210,21 +210,23 @@ ATL 规模化和通用框架保留作技术追问。除非面试官主动问优�
 
 ### Q: Why do you want this role rather than another optimization role?
 
-> What I enjoy most is understanding why an operation is not performing as expected and helping improve it. The algorithm is one tool I use.
+> My long-term goal is to architect and deliver complete supply chain and manufacturing planning solutions. I want to connect business requirements, operational data, planning models, and the workflows through which plans are used.
 >
-> This role interests me because it connects daily production, technical problem solving, and data-driven improvement. I would like to take more responsibility for following an issue through to its operational result.
+> Based on what I understand, this role could bring me closer to manufacturing operations. I want to understand how production rates and yields are measured and maintained, and observe what happens when plans are executed. That would help me improve requirements, model assumptions, and product priorities.
 >
-> I understand that this includes daily follow-up, coordination, and routine reporting as well as technical analysis. That is part of the ownership I would like to develop.
+> I can contribute my experience in manufacturing planning, optimization, and cross-functional delivery while developing that operational understanding. I would like to follow issues through to their practical results, including the coordination and follow-up that requires.
 
-最后两段必须符合本人真实动机。不要把“更复杂的数学问题”作为加入现场岗位的主要理由。
+中文主线：完整方案架构目标 → 理解参数测定与现场执行 → 反馈改进需求、模型和产品 → 用已有经验贡献并承担跟进责任。本人希望进一步发展现场理解，不将参数测定或良率工程写成既有经历。实际现场参与程度需向面试官了解。完整中英意愿类回答见[主稿第 2 节](C:/Users/HP/Desktop/application_material/meta/Meta_供应链优化产品经理_中英面试准备.md)。
 
 ### Q: Why leave HSBC?
 
 > HSBC has given me valuable experience in capacity planning, data preparation, and aligning business rules across teams. I value that experience.
 >
-> My manufacturing projects helped me realize that I want to build my long-term career closer to production operations. I am particularly interested in how equipment, materials, and process decisions affect daily output.
+> My long-term direction is manufacturing and supply chain planning. I want to develop the ability to design complete solutions, with a stronger understanding of how production data is created, how plans are carried out, and how execution feedback improves the next planning cycle.
 >
-> This opportunity would let me apply my analytical background while developing more direct ownership of manufacturing outcomes.
+> I’m looking for an opportunity to combine that operational understanding with my optimization and product skills. Based on what I know so far, this role could be a good fit, and I’d like to understand its scope in more detail.
+
+肯定汇丰在数据、容量规划和跨团队定义上的积累，再说明长期制造与供应链方向；具体公司吸引力仍应结合本人对 Meta／RL 的真实兴趣补充。
 
 ### Q: Tell me about your AI experience.
 

@@ -44,6 +44,14 @@
 
 希望扩大的产品职责属于职业意愿，不改写过去的正式职位。长期驻场及接受频繁出差已经本人确认，不扩大成直接工艺/测试/良率工程经验。
 
+### 职业目标与岗位意愿：2026-11-03 补充
+
+本人希望逐步具备架构并推动完整供应链／制造计划方案落地的能力，将需求、数据与领域模型、计划层次、系统接口及运营流程衔接起来。希望通过更贴近现场，理解生产速率、良率等参数的定义、测定与维护，观察计划执行中出现的问题，并将反馈用于需求、模型、验证和产品改进。
+
+> My long-term goal is to architect and deliver complete supply chain and manufacturing planning solutions. I want to understand how planning inputs are established and how plans perform in production, then use that feedback to improve requirements, planning rules, and user workflows. I would bring my optimization and delivery experience while developing that operational understanding.
+
+这一目标可以支持“为什么选择岗位”“为什么转向偏产品职责”“为什么离开汇丰”和“长期希望怎样成长”等回答。具体驻厂、参数测定参与、执行跟踪和整体架构职责尚需向面试官了解，不因个人兴趣推定这些权限已确认。公司层面的 Why Meta／RL 仍需本人真实兴趣作支撑。
+
 ## 案例优先级
 
 | 案例 | 当前讲述重点 |
