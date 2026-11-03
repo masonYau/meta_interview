@@ -1,6 +1,6 @@
 # ATL 项目：决策过程、颗粒度与输入输出详解
 
-更新日期：2026-11-02。适用场景：Meta IC5、偏产品经理职责的英文面试。
+更新日期：2026-11-03。适用场景：Meta IC5、偏产品经理职责的英文面试。
 
 依据：本人补充的项目事实，以及 `D:/yhl_back/atl_aps_2021` 的静态代码分析。没有运行生产数据，没有修改项目源码。
 
@@ -24,6 +24,7 @@
 5. 后续 M6S 修正将卷绕与旁工序机台搭配组合纳入候选批次，按业务经验保留高效组合。该改进由本人确认；本次备份不足以逐行还原后续完整实现。
 6. PC 审核及人工调整计划时间从约 3 小时降到 20 分钟，是后续计划工作流程结果；不是求解时间，也不单独归因于某一处修改。
 7. **稀疏候选批次与逐步扩展的迭代求解机制由本人设计。** 初始只使用稀疏候选批次，根据求解结果逐步增加候选并重新求解，以控制初始模型规模，再逐步丰富可选方案。
+8. **输入方案是算法、ATL IT、ATL PC 三方协作形成的分阶段安排。** 调试期继续使用文本输入，IT 负责文本输入接口及版本管理；约定我方在东莞小范围上线后开始数据库适配，并承担两个月内将计划生成时间控制在 20 分钟内、PC 小幅调整即可下发的目标。版本管理已实施；该目标是否按期达成及后续数据库适配完成情况尚未补充。
 
 ## 2. 先讲业务，再讲模型
 
@@ -72,19 +73,27 @@
 
 这些是当前读取流程涉及的类别，不表示每次运行全部输入都生效，也不表示所有字段都是自由决策变量。主读取链见 [read_data](D:/yhl_back/atl_aps_2021/src/data_parser.py:154)。
 
-## 5. 决策卡一：先解决输入可复现与团队接口
+## 5. 决策卡一：算法／IT／PC 三方对齐输入方式与交付顺序
 
-**问题：** 算法输出有异常时，能否重新取得当时完全相同的输入，区分数据变化与算法问题？
+**问题：** 如何同时满足我方控制额外开发成本、IT 推进产品工程化、PC 尽快将计划下发车间的诉求，并为算法调试提供足够且可复现的输入？
 
-**[业务已确认]** ATL IT 负责人倾向算法直接读取数据库，并不希望其团队承担文本输入构建。我通过几次真实优化问题的排查分享，解释固定输入对复现和诊断的重要性。最终采用版本化文本输入，由 ATL 维护，每次运行有输入编号，系统版本管理已经落地。我方负责算法，ATL IT 负责前后端。
+**[业务已确认，2026-11-03 补充] 三方诉求：** 我方希望尽量不增加额外开发成本；ATL IT 希望完善排程产品前后端，尽快通过数据库读写接入算法，以体现产品工程化及年度述职成果；ATL PC 希望尽快下发算法计划、减少实际工作量，形成年度业务成果。年度汇报是背景，面试口述以工程化进展和业务使用结果表达各方目标。
+
+**[业务已确认] 相互依赖：** 我方需要 IT 将数据清洗与收集提高优先级，提供更多测试用例，减少对 PC 手工整理数据的依赖。保留 CSV 便于固定输入、快速复现修复问题，也便于我方与 PC 用 Excel 联合检查数据。PC 则需要我方快速修复结果、适配此前遗漏的场景并改善求解效率。
+
+**[业务已确认] 本人行动：** 我邀请 IT 负责人观看实际排障，展示如何定位无解及计划缺陷，让其理解算法逻辑、求解效率与场景覆盖是当时需要优先解决的问题。我也请 PC 负责人说明计划距离下发还差哪些关键点、哪些可在较短时间内解决，以及生产使用为何是决定项目能否继续的里程碑。
+
+**[业务已确认] 共同安排与承诺：** 接下来几个月调试开发期间继续使用文本输入；IT 构建文本输入接口及输入版本管理，以此推进产品完善；我方在东莞小范围上线后开始数据库适配；我方承担两个月内生成计划耗时不超过 20 分钟、PC 仅需小幅调整即可下发车间的目标。后者是当时约定的目标，尚未补充是否按期达成；上线后的数据库适配是约定顺序，不能写成已完成的结果。
+
+**[业务已确认] 已实施结果：** ATL 维护输入，每次运行有输入编号，系统输入版本管理已落地。我方负责算法，ATL IT 负责前后端。此前确认的 PC 审核及人工调整从 3 小时降至 20 分钟，是另一项工作流程结果，不是算法生成时间，也不能用来证明本次两个月目标按期达成。
 
 **颗粒度：** 一次运行及其完整输入集合，不只是某张表的单个字段。
 
 **[代码已确认]** 备份支持 CSV、SQL 与 Excel 等读取方式，包含 `csv_input` 快照备份逻辑；服务器请求字段有版本及分析 ID。这些是支持机制，不能单靠它们还原完整系统版本管理。
 
-**取舍：** 文本文件增加生成与维护工作，但提供固定的诊断边界。数据库快照同样可以满足可复现要求，不能说数据库天然无法复现。
+**取舍：** IT 在调试阶段承担文本输入接口与版本管理，我方承诺后续数据库适配及有期限的算法改进，PC 明确生产使用的关键要求。文本文件提供固定的诊断边界，也方便 PC 用 Excel 参与检查；数据库快照同样可以满足可复现要求。这里选择的是交付顺序，不是永久排斥数据库。
 
-**PM 表达重点：** 将争论从“喜欢文件还是数据库”转成非功能需求、实际排障证据与责任分工。
+**PM 表达重点：** 识别三方激励与相互依赖，用实际排障及 PC 的使用要求建立共同目标，围绕生产使用里程碑安排分阶段交付。完整中英主陈述、短版及追问见[主稿 Q7](C:/Users/HP/Desktop/application_material/meta/Meta_供应链优化产品经理_中英面试准备.md)。
 
 证据：[CSV 读取](D:/yhl_back/atl_aps_2021/src/run_model.py:311)、[输入来源选择](D:/yhl_back/atl_aps_2021/src/run_model.py:332)、[输入快照](D:/yhl_back/atl_aps_2021/src/data_struct.py:870)、[请求参数](D:/yhl_back/atl_aps_2021/server/server.py:165)。
 
@@ -300,9 +309,9 @@ PC 审核最终计划并作必要人工调整
 
 ### Q1. What did you personally contribute?
 
-> The original solution had daily planning. I added master planning when the move to Ningde created a scale problem, and I added the post-scheduling correction layer to separate detailed adjustments from batch and machine decisions. I also designed the iterative mechanism that started with sparse candidate batches and progressively added candidates based on solve results. Other contributions included the M6S resource-combination improvement and agreeing on reproducible inputs with ATL’s IT team. Our team owned the algorithms; ATL owned the application front end and back end.
+> The original solution had daily planning. I added master planning when the move to Ningde created a scale problem, and I added the post-scheduling correction layer to separate detailed adjustments from batch and machine decisions. I also designed the iterative mechanism that started with sparse candidate batches and progressively added candidates based on solve results. Other contributions included the M6S resource-combination improvement and aligning our algorithm team, ATL IT, and PC on reproducible inputs and phased integration. Our team owned the algorithms; ATL owned the application front end and back end.
 
-原方案只有日计划。我为宁德推广带来的规模问题增加主计划，并增加排程后校正层，将细节调整与批次、机台决策分开。我还设计了初始使用稀疏候选批次、根据求解结果逐步增加候选的迭代机制。其他贡献包括 M6S 资源组合改进，以及与 ATL IT 明确可复现输入的方案。我方负责算法，ATL 负责应用前后端。
+原方案只有日计划。我为宁德推广带来的规模问题增加主计划，并增加排程后校正层，将细节调整与批次、机台决策分开。我还设计了初始使用稀疏候选批次、根据求解结果逐步增加候选的迭代机制。其他贡献包括 M6S 资源组合改进，以及协调我方算法、ATL IT 和 PC 明确可复现输入与分阶段集成。我方负责算法，ATL 负责应用前后端。
 
 ### Q2. Why did you add master planning?
 
@@ -363,9 +372,11 @@ PC 审核了修正后的计划，后续审核及人工调整时间从约 3 小�
 | 产能折扣 | 留出余量，半年未见分配错误导致的下层欠交，代价含额外转型 | 所有需求零欠交、没有任何效率损失、全局可行性证明 |
 | M6S 版本 | 旧版有同步目标，后续用资源组合批次改善 | 旧版毫无同步考虑，或备份已完整包含后续改进 |
 | 3 小时 → 20 分钟 | PC 审核及人工调整时间 | 求解时间、全部 PC 工时，或单一修改的独立收益 |
+| 两个月／生成计划 20 分钟 | 三方约定我方两个月内达到的计划生成与小幅调整后下发目标；达成情况尚未补充 | 已确认按期达成，或 PC 审核及人工调整时间 |
+| 输入与数据库集成 | 版本管理已实施；约定调试期保留文本输入，东莞小范围上线后开始数据库适配 | 永远只用文件，或已确认所有数据库适配完成 |
 | 90% | 计划部门拟减少 PC 人员的目标，执行未确认 | 已实现的人员或工作量下降 |
 | 校正层 | 保留主要安排，处理更细约束并跟踪偏差 | 只是绘图，或必然消除所有业务不可行性 |
 
-优先练熟：**宁德规模为何触发分层 → 各层决定什么 → 产能折扣的作用与代价 → 本人设计的稀疏候选与逐步扩展机制 → 日计划到校正层的分工 → M6S 为何同步目标不够 → 输入版本与 IT 协作 → PC 时间指标。**
+优先练熟：**宁德规模为何触发分层 → 各层决定什么 → 产能折扣的作用与代价 → 本人设计的稀疏候选与逐步扩展机制 → 日计划到校正层的分工 → M6S 为何同步目标不够 → 算法／IT／PC 三方协作及分阶段承诺 → 两类 20 分钟的区别。**
 
 仍可进一步补充但不影响使用本稿：产能折扣的具体制定与校准方法；参与架构确认的业务方；MU 的客户内部定义；后续 M6S 版本的完整候选索引与约束；额外转型的量级及应对措施。当前均保留事实边界，不自行补全。

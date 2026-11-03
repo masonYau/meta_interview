@@ -1,6 +1,6 @@
 # Meta Manufacturing Operations Engineer：直属领导英文面试准备
 
-更新：2026-10-29。基于本人简历、Meta Initial IC 指南、本次提供的完整 JD，以及本人补充的 ATL/松下事实。本稿取代此前通用初稿中的岗位定位和待填案例。以下英文是建议口述稿，问题为推演练习题，并非官方题库。
+更新：2026-11-03（ATL 三方协作案例）；岗位定制稿初版：2026-10-29。基于本人简历、Meta Initial IC 指南、本次提供的完整 JD，以及本人补充的 ATL/松下事实。本稿取代此前通用初稿中的岗位定位和待填案例。以下英文是建议口述稿，问题为推演练习题，并非官方题库。
 
 ## 1. 收到 JD 后的关键判断
 
@@ -33,7 +33,7 @@
 
 1. **松下：业务结果。** 交付承诺与资源约束、减少换型、客户测算费用。
 2. **ATL M6S：返工与根因排查。** 总产能可行不等于共享设备在时间上可执行。
-3. **ATL IT：跨团队分歧。** 以实际排障过程说明输入复现需求，达成输入版本管理方案。
+3. **ATL 算法／IT／PC：三方协作。** 对齐开发成本、工程化与车间使用目标，通过实际排障及 PC 使用要求达成输入方案、分阶段集成与有期限的算法交付承诺。
 4. **汇丰：数据与 AI。** 从非结构化记录提取特征并校验输出；为数据自动化能力作补充。
 
 ATL 规模化和通用框架保留作技术追问。除非面试官主动问优化深度，否则中石油数学方法不占主要时间。
@@ -140,41 +140,45 @@ ATL 规模化和通用框架保留作技术追问。除非面试官主动问优�
 
 与 JD 的连接：展示理解真实运行限制、技术排查及修正能力；不是声称做过电子装配失效分析或改善过 FPY。
 
-## 7. 主案例三：ATL IT 分歧，跨团队影响力
+## 7. 主案例三：ATL 算法／IT／PC 三方协作
 
-### Q: Tell me about a disagreement with a cross-functional partner.
+2026-11-03 依据本人新增事实替换原 IT 双方分歧故事。完整三方诉求表、中英长版与指标边界见[主稿 Q7](C:/Users/HP/Desktop/application_material/meta/Meta_供应链优化产品经理_中英面试准备.md)。
 
-> In the ATL project, our team developed the optimization algorithm, while ATL’s IT team owned the front end and back end.
->
-> Their IT lead preferred the algorithm to read directly from the database. He considered that a more production-ready approach and did not think his team should be responsible for preparing text input files.
->
-> My concern was reproducibility. Optimization problems can take a long time to investigate. I wanted to preserve the exact input for each run so we could reproduce a problem without changes in the source data affecting the investigation.
->
-> Rather than debating the file format alone, I walked him through several real model-debugging examples and showed why stable input mattered.
->
-> We kept file-based input, and ATL maintained the input files. Version management was implemented in the system, with an input ID for each run so that we could identify the corresponding dataset.
->
-> I learned that I needed to explain the operational reason behind the technical requirement and make the impact on the other team clear.
+### Q: Tell me about a time you aligned stakeholders with different priorities.
 
-中文记忆：职责 → 对方诉求 → 我的复现需求 → 多次真实排障分享 → 同意文件输入和版本方案 → 体会。
+> At ATL, our algorithm team wanted to avoid extra development cost, IT wanted database integration to improve the product, and PC wanted usable schedules released to production quickly. We also needed IT to provide cleaned data for more test cases, while CSV files made joint debugging with PC easier.
+>
+> I invited the IT lead to observe how we diagnosed infeasibility and schedule defects, and asked the PC lead to explain the blockers to production use. We aligned on that milestone and agreed to keep CSV during debugging. IT would deliver the input interface and version management; we would start database adaptation after a limited Dongguan rollout. We also committed to a two-month target of generating plans within twenty minutes, with only minor PC adjustments.
+>
+> Input version management was implemented. I learned to align different priorities through clear sequencing and shared operational goals.
 
-本人补充确认：ATL 维护输入，系统版本管理已落地，因此可以说 implemented。文件生成的具体程序及负责人未进一步确认，不额外描述导出方式，也不加排障耗时下降数字。
+我方希望控制额外开发成本；IT 希望提升产品完善程度与工程化；PC 希望快速把计划下发车间并减少人工工作。IT 和 PC 也希望这些进展能体现在年度业绩汇报中。英文以可展示的工程与业务成果表达这一背景。
+
+我方依赖 IT 提高数据收集清洗优先级，提供足够测试用例，减少 PC 手工数据依赖；CSV 便于复现问题和用 Excel 与 PC 联合排查。PC 则依赖我方修复问题、覆盖遗漏场景和提高求解效率。
+
+我邀请 IT 负责人观看无解与计划缺陷排查，也请 PC 负责人解释生产使用的关键缺口，明确计划能否下发是项目能否继续的里程碑。三方约定调试期保留文本输入，IT 构建接口及版本管理；我方在东莞小范围上线后开始数据库适配，并承担两个月内在 20 分钟内生成、PC 小幅调整即可下发的计划这一目标。输入版本管理已实施。
+
+中文记忆：三方目标 → 数据与算法依赖 → IT 看排障、PC 明确使用缺口 → 分阶段交付与我方时限 → 已实施的版本管理。
 
 ### 追问 1：Was the database approach wrong?
 
-> No. The database was a reasonable system data source. My requirement was to preserve the exact dataset used by a particular run. Those are separate concerns. The agreement in our project was to keep a versioned file as the algorithm input.
+> No. A database can also preserve reproducible input through snapshots or versioning. CSV was convenient during debugging because we could reproduce issues and inspect data with PC in Excel. We agreed to start our database adaptation after a limited Dongguan rollout.
 
-这是较稳妥的技术观点，避免陷入“文件一定比数据库更工程化”的立场。数据库也可通过快照、版本化数据等方法提供复现；如被问其他实现，可作为备选方案讨论，不声称本项目已实现。
+数据库不是错误方向；当时选择 CSV 与阶段性调试需求有关。后续适配是约定安排，尚未补充实际完成情况。
 
 ### 追问 2：What did you do beyond explaining your own preference?
 
-> I used real debugging examples to make the requirement concrete. I showed why we needed to reproduce the same model with the same input, and why changing data could make diagnosis harder. That helped us move from a preference about architecture to a specific requirement we could agree on.
+> I made the dependencies visible. IT observed real debugging, while PC explained the remaining blockers to production use. That helped us agree on the operational milestone and sequence the integration work around it.
 
-### 追问 3：Did you just move work to their team?
+不仅解释可复现性，还让 IT 看实际算法排障、让 PC 说明生产使用缺口，以共同里程碑协调集成顺序。
 
-> That was a fair concern, especially because they owned the application system. Our team owned the algorithm, while ATL owned the application and maintained the input files. The versioned input gave us a clear dataset to reproduce each run. I would still consider the maintenance cost when evaluating this design.
+### 追问 3：What did your team commit to in return?
 
-最终输入由 ATL 维护，版本管理已落地。直属领导仍可能追问：生成文件的过程、接口检查、维护成本及失败处理；这些具体机制尚未提供，不自行补写。
+> We agreed to start database adaptation after a limited rollout and committed to a two-month target: generate a plan within twenty minutes that PC could release with only minor adjustments. IT would provide the text-input interface and version management during debugging.
+
+双方都有交付责任。我方承担后续集成及限期算法改进，不能只讲 IT 接受了文件输入。
+
+**两类 20 分钟：** 本次补充的是“两个月内达到计划生成不超过 20 分钟、PC 小幅调整后可下发”的约定目标；此前“PC 审核及人工调整从 3 小时降到 20 分钟”是已确认的后续流程结果。前者是否按期达成尚未补充，后者不能作为其按期达成的证据。文本接口实现细节、数据库适配范围与完成时间、目标实际验收情况不自行扩写。
 
 ## 8. 与岗位直接相关的高优先级问答
 
@@ -369,7 +373,7 @@ FPY 练习：1,000 件首次测试，900 件首次通过，后续复测又通过
 
 ## 13. 口语练习优先级
 
-先练五题：自我介绍、松下成果、M6S 返工、IT 分歧、岗位匹配。每题先有 60–90 秒版本，再准备两层追问。
+先练五题：自我介绍、松下成果、M6S 返工、ATL 三方协作、岗位匹配。每题先有 60–90 秒版本，再准备两层追问。
 
 接着练五题：低产出、FPY 下滑、OEE、数据看板、工程变更。用“确认范围和指标 → 分解问题 → 与负责人验证 → 行动 → 效果复查”的逻辑回答，不用尚未做过的现场履历装饰。
 

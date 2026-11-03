@@ -1,6 +1,6 @@
 # Meta：供应链与运筹优化产品经理面试准备（中英对照）
 
-更新日期：2026-11-02。
+更新日期：2026-11-03。
 
 > **最新确认：** 本人明确补充：对应 **IC5**，招聘方明确说明 **偏 PM**；本人此前理解为产品经理。因此本稿恢复为主要面试准备材料，定位为“制造／供应链运营方向、偏产品经理职责的 IC5”。以需求定义、优先级取舍、优化决策工具、跨团队交付与使用效果为主线；正式职位名称及具体决策权限尚未展开。截图中 IC6 的 TPM 和设备／测试／良率要求不直接套用于本人 HC。
 
@@ -29,7 +29,7 @@
 |---|---|---|
 | 松下 | 按供应确认、计划稳定性和需求成熟度设计分层；明确 PC/采购/后台交接 | 分层策略由本人设计，与客户 IT、PC 等部门共同确定；不扩展为拥有全部产品路线图 |
 | ATL 整体方案 | 从东莞向宁德推广，为规模与细节复杂度重新划分决策层次 | 本人增加主计划与排程后校正，设计稀疏候选逐步扩展的迭代求解机制；主计划产能折扣留余量，但可能增加转型 |
-| ATL IT 输入版本 | 非功能需求、跨团队分歧、责任边界、工程落地 | ATL 维护输入，版本管理已落地；没有排障提速数字 |
+| ATL 算法／IT／PC 三方协作 | 对齐开发成本、产品工程化与车间使用，分阶段安排输入版本管理和数据库接入 | ATL 维护输入，版本管理已落地；两个月内生成计划的 20 分钟要求是约定目标，区别于 PC 审核调整耗时 |
 | ATL M6S | 需求遗漏、产品可用性、用户反馈、修正与反思 | PC 审核，审核及人工调整从约 3 小时降到 20 分钟；不是产线实测结果 |
 | 一体化计划框架 | 以新手算法工程师为用户，统一流程、对象与建模，支持客户扩展 | 本人完整设计开发求解器适配；领域对象参考本人奥克斯设计但非全部独立原创；产品接口由 PM 设计 |
 | 汇丰 | 统一数据定义、端到端决策链、AI 工作流 | 当前项目进行中；98% 是项目 benchmark，不是全量生产准确率 |
@@ -192,7 +192,7 @@ M6S 经历说明了这件事的重要性：需求在总产能层面看似完整�
 
 ## 4. ATL：规模扩展、交付与反思
 
-逐步决策、颗粒度、输入输出、旧版源码证据与英文追问见 [ATL 项目决策详解](C:/Users/HP/Desktop/application_material/meta/ATL项目_决策过程与输入输出详解.md)。本节先讲整体方案，再按问题选用 IT 分歧或 M6S 反思，不需要一次讲完三个故事。
+逐步决策、颗粒度、输入输出、旧版源码证据与英文追问见 [ATL 项目决策详解](C:/Users/HP/Desktop/application_material/meta/ATL项目_决策过程与输入输出详解.md)。本节先讲整体方案，再按问题选用算法／IT／PC 三方协作或 M6S 反思，不需要一次讲完三个故事。
 
 ### 整体项目陈述：如何为更大工厂重新划分决策，约 2 分钟
 
@@ -228,31 +228,70 @@ M6S 经历说明了这件事的重要性：需求在总产能层面看似完整�
 
 **证据边界：** 分布式是本人确认的现场部署，备份单入口内部仍按任务块顺序循环，外层派发实现未核实。半年观察仅说明未见主计划分配错误导致的下层欠交，不代表所有订单零欠交或实际交付率 100%。产能折扣比例及校准方式尚未补充。
 
-### Q7. Tell me about influencing a cross-functional partner.
+### Q7. Tell me about a time you aligned stakeholders with different priorities.
 
-> At ATL, our team owned the optimization algorithm, while the customer’s IT team owned the application. Their IT lead preferred direct database input and was concerned about the work of preparing text files.
+#### 三方诉求与相互依赖
 
-在 ATL，我方负责优化算法，客户 IT 团队负责应用系统。IT 负责人倾向算法直接读数据库，也担心准备文本输入会增加团队工作。
+| 参与方 | 当时的诉求 | 相互依赖与取舍 |
+|---|---|---|
+| 我方算法团队 | 尽量不增加额外开发成本，集中修复逻辑、提升求解效率并覆盖新场景 | 依赖 IT 优先收集和清洗数据，提供足够测试用例，减少继续依赖 PC 手工整理数据；保留 CSV 便于固定输入、复现问题及用 Excel 与 PC 联合排查 |
+| ATL IT 团队 | 提高排程产品前后端的完善程度，希望尽快以数据库读写接入算法，形成可在年度述职中体现的工程化成果 | 产品价值需要算法结果真正可用；同意先以文本输入接口及输入版本管理推进产品完善，将算法数据库适配放到后续阶段 |
+| ATL PC 团队 | 尽快将算法结果下发车间、减少实际工作量，形成可在年度业绩中体现的业务成果 | 依赖算法团队快速修复计划问题、适配遗漏场景并提高求解效率；需要说明哪些缺口阻碍下发，以及什么结果足以进入生产使用 |
 
-> My concern was preserving the exact input for each run. Optimization issues can take time to investigate, and changing data can make them hard to reproduce. I shared several real debugging examples to explain the requirement.
+年度汇报诉求是本人补充的项目背景。英文主陈述将其表达为可展示的工程进展与业务成果，避免给同事贴上只关注个人业绩的标签。
 
-我关注的是保留每次运行使用的确切输入。优化问题排查耗时较长，如果数据变化，问题就难以复现。我通过几次真实排障案例分享说明这一需求。
+#### 完整中英陈述：约 2–3 分钟，按追问展开
 
-> We kept file-based input, ATL maintained the input files, and version management was implemented with an input ID for each run.
+> At ATL, I worked with our algorithm team, ATL’s IT team, and the production planning team, or PC. We wanted to avoid additional development cost. IT wanted direct database integration to demonstrate progress toward a more complete product. PC wanted usable schedules released to the shop floor quickly to reduce manual work.
 
-最终保留了文件输入，由 ATL 维护，系统实现了版本管理，并为每次运行保留相应输入编号。
+在 ATL，我协调我方算法团队、ATL IT 和生产计划团队 PC。我方希望避免额外开发成本；IT 希望尽快直接接入数据库，体现产品完善与工程化进展；PC 希望尽快把可用计划下发车间，减少人工工作。
 
-> The product lesson was to define the underlying requirement—reproducibility—rather than argue only about the implementation. It also required a clear boundary between the application team and the algorithm team.
+> We needed IT to prioritize collecting and cleaning input data so we could test more cases instead of relying on manually prepared PC datasets. Keeping CSV input also helped us reproduce issues and inspect data with PC in Excel. PC, in turn, needed us to fix planning problems, cover missed scenarios, and improve runtime.
 
-产品上的体会是，应当明确底层需求——可复现性，而不只争论实现方式；同时需要明确应用团队和算法团队的责任边界。
+我方需要 IT 优先收集和清洗输入数据，提供更多测试用例，减少对 PC 手工数据的依赖。保留 CSV 也便于复现问题，并与 PC 一起用 Excel 检查数据。PC 则需要我们修复计划问题、覆盖遗漏场景并改善运行时间。
 
-**追问：Could a database solve that too?**
+> I invited the IT lead to watch us diagnose infeasibility and defects in the schedules. I also asked the PC lead to explain the remaining blockers to shop-floor use and which could be addressed soon. This made the critical milestone clear: the project had to produce schedules that PC could release to production.
 
-> Yes. A database could also support reproducible inputs through appropriate snapshot or versioning mechanisms. Our project used versioned files. The requirement was traceable input, not that every product must use files.
+我邀请 IT 负责人观看我们如何定位无解和计划缺陷，也请 PC 负责人说明距离下发车间还差哪些关键点、哪些可以较快解决。这让三方明确：产出可由 PC 下发生产的计划，是决定项目能否继续的关键里程碑。
 
-可以。数据库也可以通过合适的快照或版本机制支持输入复现。我们的项目采用版本化文件，核心要求是输入可追溯，而非所有产品都必须用文件。
+> We agreed on a phased approach. During the next few months of debugging, we would keep text input. IT would build the text-input interface and input version management, giving them a concrete product improvement. Our team would start database adaptation after a limited rollout in Dongguan. We committed to a two-month target: generate a plan within twenty minutes that PC could release with only minor adjustments.
 
-**产品能力映射：** 非功能需求 → 利益相关方诉求 → 真实证据 → 职责与接口 → 落地。未提供的文件导出机制、维护成本数字和故障恢复 SLA 不补写。
+三方同意分阶段推进：接下来几个月调试期间继续使用文本输入；IT 构建文本输入接口及输入版本管理，以此形成产品完善成果；我方在东莞小范围上线后再开始数据库适配。同时，我方承担两个月内的交付目标：在 20 分钟内生成 PC 只需小幅调整即可下发车间的计划。
+
+> Input version management was implemented, with ATL maintaining the inputs. The lesson was to sequence technical integration around an operational milestone, while giving each team a clear responsibility and a meaningful deliverable.
+
+输入版本管理已实施，由 ATL 维护输入。我的体会是，要围绕业务使用里程碑安排技术集成顺序，并让每一方都承担清晰责任、取得有意义的阶段成果。
+
+#### 60–90 秒短版
+
+> At ATL, our algorithm team wanted to avoid extra development cost, IT wanted database integration to improve the product, and PC wanted usable schedules released to production quickly. We also needed IT to provide cleaned data for more test cases, while CSV files made joint debugging with PC easier.
+>
+> I invited the IT lead to observe how we diagnosed infeasibility and schedule defects, and asked the PC lead to explain the blockers to production use. We aligned on that milestone and agreed to keep CSV during debugging. IT would deliver the input interface and version management; we would start database adaptation after a limited Dongguan rollout. We also committed to a two-month target of generating plans within twenty minutes, with only minor PC adjustments.
+>
+> Input version management was implemented. I learned to align different priorities through clear sequencing and shared operational goals.
+
+中文记忆：三方目标 → 数据与算法相互依赖 → IT 看真实排障、PC 说明生产使用缺口 → 分阶段交付与各方承诺 → 已落地的版本管理。
+
+#### 追问：What did you compromise on?
+
+> We did not reject database integration. We agreed to start our database adaptation after a limited Dongguan rollout, and accepted a time-bound responsibility for improving the algorithm. IT would support versioned text inputs during debugging, while PC clarified the requirements for releasing plans to production.
+
+我方没有拒绝数据库接入，而是约定在东莞小范围上线后开始适配，并承担有期限的算法改进责任；IT 在调试期支持版本化文本输入，PC 明确计划下发的关键要求。取舍在于集成顺序与交付责任，而非只要求 IT 接受我方偏好的文件格式。
+
+#### 追问：Could a database solve reproducibility too?
+
+> Yes. A database can preserve reproducible inputs through snapshots or versioning. We kept CSV during debugging because it was convenient for issue reproduction and joint data inspection with PC. Database integration remained part of the agreed later phase.
+
+可以，数据库也可以通过快照或版本化保存可复现输入。调试阶段选择 CSV，是为了便于复现问题及与 PC 联合检查数据；数据库接入仍在约定的后续阶段内。
+
+#### 两个“20 分钟”必须区分
+
+| 内容 | 当前事实状态 | 不能混用为 |
+|---|---|---|
+| 两个月内，将计划生成时间控制在 20 分钟内，PC 仅小幅调整即可下发 | 本次补充的三方约定与我方交付目标；是否按期达成、东莞上线及数据库适配完成情况尚未补充 | 已证实在两个月内实现全部目标，或 PC 审核调整耗时 |
+| PC 审核及人工调整从约 3 小时降至 20 分钟 | 此前已确认的后续工作流程结果 | 算法生成时间，或前一目标按期达成的证据 |
+
+**产品能力映射：** 识别各方激励 → 揭示数据与算法依赖 → 用实际排障建立共同理解 → 以生产使用定义里程碑 → 分阶段交换承诺 → 区分已实施成果与约定目标。文本输入接口的具体实现、数据库适配范围、两个月目标的实际验收和排障提速数字未补充，不自行扩写。
 
 ### Q8. Tell me about a failure or a requirement you missed.
 
@@ -500,7 +539,7 @@ MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模�
 
 若分歧影响业务承诺，我会向有决策权的负责人提出建议，并记录决定和假设，让工程与用户遵循一致规则。
 
-可接 ATL IT 的真实故事作证。没有独立最终拍板权，不说“我决定所有优先级”。
+可接 ATL 算法／IT／PC 三方协作的真实故事作证。没有独立最终拍板权，不说“我决定所有优先级”。
 
 ### Q17. How would you manage a release when a dependency is late?
 
@@ -555,7 +594,8 @@ MPS、MRP、SOP 这类计划问题都很适合使用离散时间生产计划模�
 | 松下 99.9% | 三个月的确认交期计划满足指标 | 实际出货率、良率 |
 | ATL 3 小时 → 20 分钟 | PC 审核及人工调整计划时间 | 算法运行时间或所有计划工作总工时 |
 | ATL 90% | 计划部门拟减少的 PC 人员比例，执行未确认 | 已实现的人数或工作量下降 |
-| ATL 输入版本 | ATL 维护，版本管理已实施 | 只有口头建议，或本人开发全部前后端 |
+| ATL 三方输入方案 | 算法／IT／PC 对齐分阶段交付；ATL 维护输入，版本管理已实施；东莞小范围上线后开始数据库适配是约定顺序 | 永久拒绝数据库，或已确认后续集成全部完成 |
+| ATL 两个月目标 | 约定两个月内生成计划耗时不超过 20 分钟，PC 只需小幅调整即可下发 | 已确认按期达成，或 PC 审核调整的 20 分钟 |
 | ATL 设计贡献 | 原来只有日计划，本人增加主计划和排程后校正，并设计稀疏候选逐步扩展的迭代求解机制 | 全部原有日计划与应用系统均为本人原创 |
 | ATL 运行交接 | 主计划后不经 PC 审核，直接分布式运行日计划 | PC 审批主计划后才启动；旧版单入口循环已证明分布式实现 |
 | ATL 半年观察 | 未见因主计划分配错误导致的日计划欠交；产能余量会增加转型 | 所有需求零欠交、无效率代价、实际交付率 100% |
@@ -600,7 +640,7 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 2. 为什么适合 Product Manager：经历相关，但不改写正式职位。
 3. 松下：用户、决策、取舍、结果。
 4. ATL 整体：宁德规模、本人新增两层与稀疏候选迭代机制、产能余量与额外转型。
-5. ATL IT：可复现输入与版本管理。
+5. ATL 三方协作：开发成本、工程化与生产使用目标；数据依赖、真实排障、分阶段承诺与版本管理。
 6. ATL M6S：同步目标的不足、资源组合修正、PC 审核调整时间。
 7. 如何确定 MVP 与衡量产品价值。
 
