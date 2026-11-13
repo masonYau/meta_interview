@@ -1,6 +1,6 @@
 # Meta：供应链与运筹优化产品经理面试准备（中英对照）
 
-更新日期：2026-11-03。
+更新日期：2026-11-04。
 
 > **最新确认：** 本人明确补充：对应 **IC5**，招聘方明确说明 **偏 PM**；本人此前理解为产品经理。因此本稿恢复为主要面试准备材料，定位为“制造／供应链运营方向、偏产品经理职责的 IC5”。以需求定义、优先级取舍、优化决策工具、跨团队交付与使用效果为主线；正式职位名称及具体决策权限尚未展开。截图中 IC6 的 TPM 和设备／测试／良率要求不直接套用于本人 HC。
 
@@ -36,29 +36,29 @@
 
 现场工程稿保留作领域补充；本次不将 FATP/SMT、OEE、良率工程作为主要经历证明。供应链深度重点是制造计划、物料与产能、MPS/APS/MRP/S&OP 相关算法能力，不自动扩大到采购商务、物流网络运营或供应商合同管理。
 
-## 1. 英文自我介绍：约 90 秒
+## 1. 英文自我介绍：约 90–110 秒
 
 > Hi, I’m Jinfeng. My background is in operations research, with a focus on manufacturing planning and resource allocation.
 
-你好，我是晋峰。我的背景是运筹优化，重点方向是制造计划与资源配置。
+你好，我是晋峰。我的背景是运筹优化，主要关注制造计划与资源配置。
 
-> I currently work at HSBC on a capacity planning product. Before that, I spent more than four years at Youhualin, where I led a small algorithm team and worked on manufacturing projects for Panasonic Electronic Materials and ATL.
+> At HSBC, I lead workforce capacity planning and case assignment initiatives. The work aligns staffing with workload demand and assigns cases based on staff availability and qualifications, with the aim of improving staff utilization and productivity.
 
-我目前在汇丰参与产能规划产品。在此之前，我在悠桦林工作了四年多，带领小型算法团队，参与松下电子材料和 ATL 等制造业项目。
+目前在汇丰，我主导人力产能规划和案例分配相关工作，通过匹配人员配置与工作量需求，以及根据人员可用性和资质分配案例，提高人员利用率和生产力。
 
-> My work has involved understanding user requirements, defining planning rules, designing optimization solutions, and working with business and IT teams. At Panasonic, I designed the layered planning strategy and agreed it with the customer’s IT and PC teams. At ATL, I added master planning and post-scheduling correction to support a larger factory.
+> Before that, I spent more than four years at Youhualin, where I led a small algorithm team. My manufacturing projects included planning systems for Panasonic Electronic Materials and ATL. The Panasonic project coordinated materials, equipment and mold capacity, and delivery commitments. The ATL project supported multi-factory production planning and detailed scheduling under complex resource constraints.
 
-我的工作包括理解用户需求、定义计划规则、设计优化方案，以及与业务和 IT 团队协作。在松下，我设计了分层计划策略，并与客户 IT、PC 团队共同确定。在 ATL，我增加主计划和排程后校正，以支持规模更大的工厂。
+此前，我在悠桦林工作了四年多，带领小型算法团队，参与松下电子材料和 ATL 的制造计划系统项目。松下项目协调物料、设备及模具产能与交期承诺；ATL 项目支持复杂资源约束下的多工厂生产计划与详细排程。
 
-> I also led the algorithm design of a reusable planning framework to help junior engineers build solutions faster. I personally designed and implemented its solver adaptation layer. That made me think about which capabilities should be shared and which should remain customer-specific.
+> I also worked on a reusable software framework for MPS, MRP, and S&OP planning models. It combined data processing, optimization modeling, and result generation, with extensions for different customer requirements. This helped engineers build and deliver planning solutions more efficiently.
 
-我还负责可复用计划框架的算法设计，帮助新手工程师更快构建方案，并亲自完整设计开发求解器适配层。这让我关注哪些能力应当共用，哪些应当保留为客户定制。
+我还参与了面向 MPS、MRP 和 S&OP 计划模型的可复用软件框架建设。它将数据处理、优化建模和结果生成组织成共用流程，并支持不同客户需求的扩展，帮助工程师更高效地构建和交付计划方案。
 
-> I’m interested in a product-oriented role close to manufacturing operations, where I can apply this background and grow toward designing complete planning solutions grounded in how production actually works.
+> I’m now looking for a product-oriented role closer to manufacturing operations, where I can contribute this experience and develop the ability to architect and deliver end-to-end planning solutions.
 
-我希望承担贴近制造运营、偏产品的职责，发挥已有技术背景，并逐步具备基于真实生产流程设计完整计划解决方案的能力。
+现在，我希望承担更贴近制造运营、偏产品的职责，发挥已有经验，并逐步具备架构和推动完整计划解决方案落地的能力。
 
-记忆顺序：背景 → 当前 → 制造用户与交付 → 可复用框架 → 为什么产品岗位。不要主动说自己已有正式 Product Manager 职位或完整商业产品经营责任。
+记忆顺序：背景 → 汇丰人力产能规划与案例分配 → 松下／ATL 项目概况 → 可复用框架的功能与价值 → 完整方案架构与交付的职业目标。不要主动说自己已有正式 Product Manager 职位或完整商业产品经营责任。
 
 ## 2. 为什么适合产品经理，为什么从算法转向产品
 
@@ -85,7 +85,8 @@
 
 我的长期目标是设计并推动完整制造与供应链计划方案落地。在过去的项目中，理解用户决策、明确业务规则，与优化方法本身同样重要。
 
-> For example, at Panasonic we had to distinguish material shortages from resource constraints, and confirmed commitments from newly requested dates. These choices affected the value of the solution before we discussed the mathematical method.
+> [!NOTE] 改为在松下我将原材料供给与生产路径选择问题与排程问题进行切分；以及区分已承诺订单和新增订单交付日期承诺的在算法上和运作流程上的处理
+> > For example, at Panasonic we had to distinguish material shortages from resource constraints, and confirmed commitments from newly requested dates. These choices affected the value of the solution before we discussed the mathematical method.
 
 例如在松下，我们需要区分缺料问题和资源限制，也需要区分已确认交期承诺和新增需求的期望日期。这些选择在讨论数学方法之前，就已经决定了方案的价值。
 
@@ -779,3 +780,4 @@ S&OP 不只是一个优化模型，MRP 也不等于具体机台排程。讨论�
 - 供需与产能计划的通用问题范围可参考 [Microsoft Master Planning](https://learn.microsoft.com/en-us/dynamics365/supply-chain/master-planning/master-planning-home-page)。本稿不假设 Meta 使用该产品，也不将其功能当作本人已实现的功能。
 
 
+[^1]: 同样
